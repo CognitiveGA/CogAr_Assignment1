@@ -125,24 +125,24 @@ ROS Topics (Example):
 
 
 ┌────────────────────────────┐
-│     Human Supervisor / UI           │ 
+│     Human Supervisor / UI  │ 
 └────────────────────────────┘
               ▲
               │
 ┌─────────────┴────────────────────────┐
-│     Data Transmission & Reporting               │
+│     Data Transmission & Reporting    │
 └──────────────────────────────────────┘
-   ▲          ▲            ▲        ▲
+   ▲           ▲            ▲        ▲
    │           │            │        │
-   │           │            │        └────────────┐
+   │           │            │        |________________
    │           │            │                         ▼
 ┌────────┐ ┌────────────┐ ┌────────────────┐ ┌──────────────────────────┐
-│ Victim   │ │   Triage       │ │  Structural Risk    │ │     Mission Success Notifier     │
-│Detection │ │  System        │ │  Assessment         │ └──────────────────────────┘
+│ Victim │ │   Triage   │ │  Structural Risk││  Mission Success Notifier│
+│Detection││  System    │ │  Assessment    │ └──────────────────────────┘
 └────────┘ └────────────┘ └────────────────┘            ▲
-              ▲              ▲                                      │
+              ▲           ▲                             │
               └───────────┴────────────┬────────────────┘
-                                               ▼
+                             	       ▼
                              Instructions: Restart, Shutdown, Return
 
 Data Flow: All data from detection, triage, and risk assessment is funneled through the Data Transmission component.
