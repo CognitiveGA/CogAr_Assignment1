@@ -1,0 +1,149 @@
+Disaster Response Robot Architecture Diagram
+Key Functional Components
+1. Victim Detection and Reporting
+	Utilizes RGB-D Camera & Microphones
+	Identifies injured individuals & determines location
+	Sends real-time alerts to the human operator
+
+2. Triage System:
+	Uses Speakers for communication with the victim and RGB-D camera to check for visible injuries
+	Evaluates victim’s consciousness, responsiveness, & injuries
+	Sends triage classification for prioritization
+
+3. Structural Risk Assessment (Wall Stability Evaluation)
+	Uses image processing & sensor fusion (Sonar, RGB-D camera and LiDar
+	Detects cracks, unstable sections, weak walls
+	Classifies risk levels & sends alerts
+	Autonomous movement for precise assessment
+
+4. Data Transmission & Reporting
+	Real-time reports sent to human supervisors
+	Human supervisor can request detailed evaluations
+
+5. Mission Success Notification
+	Communicates mission completion after full map exploration
+	Awaits further instructions from the operator
+
+6. Navigation
+	Uses LiDar, RGB-D camera, Sonar and Slam Component
+	Allows the robot to move in the environment
+	Kiynematic and Dynamic control loop chain
+
+7. Sensing/Visual Perception
+	Uses LiDar, RGB-D camera, Sonar
+	Create a map of the environment
+
+System Interaction
+The robot continuously scans the environment using its sensors.
+When victims or building instabilities are detected, the robot prioritizes response actions.
+Alerts and reports are transmitted in real time to a remote human supervisor.
+Upon mission completion, the robot communicates status & awaits further commands.
+
+Component Diagram Structure
+
+Victim Detection Module
+	Uses RGB-D Camera & Microphones
+	Sends alerts to the Human Supervisor
+
+Triage System
+	Evaluates victim conditions
+	Communicates through Speakers
+	Sends triage classification
+
+Structural Risk Assessment
+	Uses image processing & sensor fusion
+	Identifies unstable walls
+	Sends risk levels to the Human Supervisor
+
+Communication Interface -> serves as the central hub for data exchange between the robot and the human supervisor
+	Sends real-time reports
+	Receives manual requests for further evaluation
+
+Mission Status Module
+	Confirms map exploration completed
+	Awaits new instructions
+	It only activates after victim detection, triage, and structural assessments are done, and the area has been fully explored.
+	It doesn't process raw sensor data itself—rather, it monitors the state of other modules via the Data Transmission & Reporting system.
+	Outputs:
+		Sends a “Mission Complete” message to the Human Supervisor (via UI or dashboard)
+		Optionally triggers a status light, log entry, or notification system
+	Inputs:
+		Further instructions from the operator, such as:
+		Restart mission
+		Return to base/Move closer to injuried people or wall -> Navigation Input
+		Shutdown
+		Check injuried People condition -> Triage Input
+	<<Component>> Mission Success Notification
+	+ notifyCompletion()
+	+ awaitOperatorInstruction()
+	+ executeInstruction(instruction)
+	
+How To Create a Communication Interface:
+1. Core Functionality:
+	Report Transmission: Sends updates on building stability, victim status, and mission progress.
+	Request Handling: Receives manual input from the supervisor for additional inspections.
+	Data Synchronization: Ensures smooth real-time communication and logging.
+
+2. Integration with Other Components:
+	Victim Detection & Triage System: Sends real-time victim data to the human supervisor.
+	Structural Risk Assessment: Shares building instability reports and receives supervisor instructions.
+	Mission Status Module: Confirms exploration completion and awaits further commands.
+
+3. Technical Considerations:
+	Communication Protocol: Use a reliable protocol (e.g., MQTT, WebSocket, REST API).
+	Hardware Support: Wireless connectivity module (e.g., Wi-Fi, 5G, or LoRa for emergency cases).
+	Security Features: Encryption for sensitive data transmissions to prevent interception.
+
+Conceptual Design (Architecture Level)
+Responsibilities:
+Receive inputs from other components (e.g., victim detection, triage, risk assessment)
+Transmit real-time alerts/reports to human operators
+Handle incoming requests from the operator (e.g., ask for a detailed triage)
+
+Inputs:
+Victim data
+Triage data
+Structural risk levels
+
+Outputs:
+Consolidated real-time reports
+Event-based alerts (e.g., unstable structure found!)
+API or UI updates to the supervisor
+<<Component>> Data Transmission and Reporting
++ receiveData(source, payload)
++ sendAlert(message)
++ generateReport()
++ handleOperatorRequest(request)
+
+ROS Topics (Example):
+/victim_detection → subscribes
+/triage_info → subscribes
+/risk_assessment → subscribes
+/operator_request → service or action
+/report_updates → publishes
+
+
+
+┌────────────────────────────┐
+│     Human Supervisor / UI           │ 
+└────────────────────────────┘
+              ▲
+              │
+┌─────────────┴────────────────────────┐
+│     Data Transmission & Reporting               │
+└──────────────────────────────────────┘
+   ▲          ▲            ▲        ▲
+   │           │            │        │
+   │           │            │        └────────────┐
+   │           │            │                         ▼
+┌────────┐ ┌────────────┐ ┌────────────────┐ ┌──────────────────────────┐
+│ Victim   │ │   Triage       │ │  Structural Risk    │ │     Mission Success Notifier     │
+│Detection │ │  System        │ │  Assessment         │ └──────────────────────────┘
+└────────┘ └────────────┘ └────────────────┘            ▲
+              ▲              ▲                                      │
+              └───────────┴────────────┬────────────────┘
+                                               ▼
+                             Instructions: Restart, Shutdown, Return
+
+Data Flow: All data from detection, triage, and risk assessment is funneled through the Data Transmission component.
+Control Flow: Mission Success Notification is a concluding component that depends on successful task execution across all others.
