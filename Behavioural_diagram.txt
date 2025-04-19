@@ -110,3 +110,27 @@ Another solution can be done using Activity Diagram (focusing more on the contro
 [Receive Instructions: Return / Restart / Shutdown]
            ↓
           (End)
+All the following step are computed if the user do not send further instruction to the robot
+
+1) Robot Deployed
+2) Initial Map Scanning
+3) If the robot has seen the victims start to approach them (If there are no other instructions)
+	- Already helped Victim?
+		- If yes, go to step 4
+		- If no
+			- Triage (in Francesca's Ipad)
+			- Triage ended
+	- Are there any victims? If yes go to them, else continue
+4) Move to the environment
+	- New victim are seen?
+		- If yes, go to step 3
+		- Else continue
+	- Already seen zone:
+		- If yes: there are other zone to see?
+			- If yes: 
+				- Check stability
+				- Repeat step 4
+			- If no: continue
+6) Search Ended/No more instructions 
+	- If yes End -> Mission complete
+	- Else continue (go to move)
