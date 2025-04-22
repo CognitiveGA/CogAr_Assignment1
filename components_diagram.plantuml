@@ -1,0 +1,95 @@
+@startuml
+title Post-Earthquake Search and Rescue Robot - Component Diagram
+
+package "TIAGo Post-earthquake Rescueter" as receiver {
+  
+  component "<<Subsystem>>\nPerception" as perception{
+    component "<<Component>>\nRGB-D Cameras"              as perception.camera
+    component "<<Component>>\nLiDARs"                     as perception.lidar
+    component "<<Component>>\nSONARs"                     as perception.sonar
+    component "<<Component>>\nImmage Adjuster"            as perception.adj
+    component "<<Component>>\nGPS"                        as perception.gps
+    component "<<Component>>\nIMUs"                       as perception.imu
+
+    portout "depth / infrared\n/ point cloud"             as perception.envdet
+    portout "RGB / depth\n/ infrared / point cloud"       as perception.injdet
+    portout "linear acceleration\n/ angular velocity"     as perception.accgyr
+    portout "position"                                    as perception.pos
+
+    perception.camera --0)- perception.adj     : point cloud / depth / infrared
+    perception.lidar           --0)- perception.adj     : point cloud / depth
+    perception.sonar           --0)- perception.adj     : depth
+    perception.adj             --0)- perception.envdet
+    perception.camera          --0)- perception.injdet
+    perception.imu             --0)- perception.accgyr
+    perception.gps             --0)- perception.pos
+  }
+
+  component "<<Subsystem>>\nCommunicator" as communicator {
+    portin "audio" as communicator.emit
+
+    component "<<Component>>\nMicrophones" as communicator.mic
+    component "<<Component>>\nSpeakers" as communicator.speaker
+    component "<<Component>>\nReal-Time Reporting" as communicator.rtrep
+    component "<<Component>>\nMission Status Notification" as communicator.status
+
+    portout "audio" as communicator.hear
+
+    communicator.mic --0)- communicator.hear
+    communicator.emit --0)- communicator.speaker
+  }
+
+  component "<<Subsystem>>\nSearch and Rescue Tasks" as searchrescue{
+    portin "audio" as searchrescue.hear
+    portin "RGB / depth\n/ infrared / point cloud" as searchrescue.injdet
+
+    component "<<Component>>\nVictim Detection and Reporting" as searchrescue.vicdetrep
+    component "<<Component>>\nTriage System" as searchrescue.triage
+
+    portout "audio" as searchrescue.emit
+
+    searchrescue.injdet --0)- searchrescue.vicdetrep
+    searchrescue.injdet --0)- searchrescue.triage
+    searchrescue.hear --0)- searchrescue.vicdetrep
+    searchrescue.hear --0)- searchrescue.triage
+    searchrescue.vicdetrep --0)- searchrescue.emit
+  }
+
+  component "<<Subsystem>>\nStructural Analysis" as structanal {
+    portin "depth / infrared\n/ point cloud" as structanal.envdet
+
+    component "<<Component>>\nStructural Risk Assessment" as structanal.risk
+    component "<<Component>>\nObstacle and Damage Detection" as structanal.obstdamdet
+
+    structanal.envdet --0)- structanal.risk
+    structanal.envdet --0)- structanal.obstdamdet
+  }
+
+  component "<<Subsystem>>\nActuator" as actuator{
+    component "Left motor" as actuator.lm
+    component "Right motor" as actuator.rm
+    component "Left motor controller" as actuator.lmc
+    component "Right motor controller" as actuator.rmc
+  }
+
+  component "<<Subsystem>>\nCore System" as core{
+    portin "depth / infrared\n/ point cloud" as core.envmeasures
+
+    component "<<Component>>\nAutonomous Navigation" as core.autonav
+    component "<<Component>>\nMapping" as core.map
+
+    core.map --0)- core.autonav
+  }
+
+  ' communicator
+  communicator.hear --0)- searchrescue.hear
+  
+
+  ' searchrescue
+  searchrescue.emit --0)- communicator.emit
+  
+  ' perception
+  perception.injdet -0)- searchrescue.injdet
+  perception.envdet -0)- structanal.envdet
+}
+@enduml
