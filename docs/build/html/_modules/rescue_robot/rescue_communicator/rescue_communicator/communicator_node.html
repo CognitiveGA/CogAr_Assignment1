@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rescue_robot.rescue_communicator.rescue_communicator.communicator_node &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            TIAGo Post-earthquake scenario
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">rescue_robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../diagrams.html">UML diagrams</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">TIAGo Post-earthquake scenario</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">rescue_robot.rescue_communicator.rescue_communicator.communicator_node</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for rescue_robot.rescue_communicator.rescue_communicator.communicator_node</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Communicator Node module.</span>
+
+<span class="sd">This module defines the CommunicatorNode class, which manages communication-related devices</span>
+<span class="sd">(microphone, speaker, real-time reporter, and mission status notifier) in a ROS 2 node.</span>
+
+<span class="sd">It publishes and subscribes to audio messages and simulates real-time audio capture and playback.</span>
+
+<span class="sd">Classes:</span>
+<span class="sd">    CommunicatorNode: A ROS 2 node handling audio communication and mission reporting.</span>
+
+<span class="sd">Functions:</span>
+<span class="sd">    main(args=None): Entry point to run the node.</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    To run the node:</span>
+<span class="sd">    &gt;&gt;&gt; python communicator_node.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_communicator.microphone</span><span class="w"> </span><span class="kn">import</span> <span class="n">Microphone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_communicator.speaker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Speaker</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_communicator.real_time_reporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">RealTimeReporter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_communicator.mission_status_notification</span><span class="w"> </span><span class="kn">import</span> <span class="n">MissionStatusNotification</span>
+
+<div class="viewcode-block" id="CommunicatorNode">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CommunicatorNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ROS 2 node for managing communication devices and handling audio data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        microphone (Microphone): Simulated microphone device.</span>
+<span class="sd">        speaker (Speaker): Simulated speaker device.</span>
+<span class="sd">        reporter (RealTimeReporter): Reports real-time system events.</span>
+<span class="sd">        notifier (MissionStatusNotification): Sends mission status updates.</span>
+<span class="sd">        publisher_audio (Publisher): Publishes captured audio data to the &#39;audio_in&#39; topic.</span>
+<span class="sd">        subscriber_audio (Subscription): Subscribes to audio messages from the &#39;search_rescue_audio_out&#39; topic.</span>
+<span class="sd">        timer (Timer): Periodic timer to capture audio at a fixed rate.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the CommunicatorNode, its devices, publishers, subscribers, and timers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;communicator_node&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Initialize components</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microphone</span> <span class="o">=</span> <span class="n">Microphone</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speaker</span> <span class="o">=</span> <span class="n">Speaker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reporter</span> <span class="o">=</span> <span class="n">RealTimeReporter</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notifier</span> <span class="o">=</span> <span class="n">MissionStatusNotification</span><span class="p">()</span>
+
+        <span class="c1"># Activate devices (simulate startup)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microphone</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notifier</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+
+        <span class="c1"># Publishers and Subscribers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_audio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;audio_in&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscriber_audio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+            <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;search_rescue_audio_out&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_audio_callback</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="c1"># Timer to simulate periodic audio capture</span>
+        <span class="n">timer_period</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># seconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="n">timer_period</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">capture_audio</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CommunicatorNode.capture_audio">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode.capture_audio">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">capture_audio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Simulate capturing audio from the environment and publish it to the &#39;audio_in&#39; topic.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">audio_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">microphone</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">audio_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_audio</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s2">&quot;Microphone captured new audio sample.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CommunicatorNode.receive_audio_callback">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode.receive_audio_callback">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">receive_audio_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Callback function to handle received audio messages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            msg (std_msgs.msg.String): Incoming audio message to be played through the speaker.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received audio to play: </span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speaker</span><span class="o">.</span><span class="n">speak</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notifier</span><span class="o">.</span><span class="n">notify</span><span class="p">({</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Playing received audio&quot;</span><span class="p">,</span> <span class="s2">&quot;urgency&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Entry point for the CommunicatorNode.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        args (list, optional): Command-line arguments for ROS 2 initialization.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">CommunicatorNode</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Group A: Shady Abdelmalek, Francesca Amato, Gian Marco Balia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

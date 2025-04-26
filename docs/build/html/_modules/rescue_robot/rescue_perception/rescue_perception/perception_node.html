@@ -1,0 +1,205 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rescue_robot.rescue_perception.rescue_perception.perception_node &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            TIAGo Post-earthquake scenario
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">rescue_robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../diagrams.html">UML diagrams</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">TIAGo Post-earthquake scenario</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">rescue_robot.rescue_perception.rescue_perception.perception_node</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for rescue_robot.rescue_perception.rescue_perception.perception_node</h1><div class="highlight"><pre>
+<span></span><span class="c1"># perception_node.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.sonar</span><span class="w"> </span><span class="kn">import</span> <span class="n">SONAR</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.rgb_camera</span><span class="w"> </span><span class="kn">import</span> <span class="n">RGBCamera</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.lidar</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiDAR</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.imu</span><span class="w"> </span><span class="kn">import</span> <span class="n">IMU</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.gps</span><span class="w"> </span><span class="kn">import</span> <span class="n">GPS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.image_adjuster</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImageAdjuster</span>
+
+<div class="viewcode-block" id="vector3_to_dict">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.vector3_to_dict">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">vector3_to_dict</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="PerceptionNode">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PerceptionNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;perception_node&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Instantiate sensor wrappers subscribing to real topics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lidar</span> <span class="o">=</span> <span class="n">LiDAR</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sonar</span> <span class="o">=</span> <span class="n">SONAR</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imu</span> <span class="o">=</span> <span class="n">IMU</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gps</span> <span class="o">=</span> <span class="n">GPS</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rgb_camera</span> <span class="o">=</span> <span class="n">RGBCamera</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_adjuster</span> <span class="o">=</span> <span class="n">ImageAdjuster</span><span class="p">()</span>
+
+        <span class="c1"># Publishers for processed output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_env</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;env_detection&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_inj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;injury_detection&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_imu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;imu_data&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_gps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;gps_position&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="c1"># Timer to periodically publish aggregated data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish_data</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PerceptionNode.publish_data">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode.publish_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">publish_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Gather latest messages</span>
+        <span class="n">scan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lidar</span><span class="o">.</span><span class="n">get_scan</span><span class="p">()</span>
+        <span class="n">sonar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sonar</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+        <span class="n">imu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imu</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+        <span class="n">odom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gps</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb_camera</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+
+        <span class="c1"># Serialize env detection (point cloud + range)</span>
+        <span class="n">env</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;points_frame_id&#39;</span><span class="p">:</span> <span class="n">scan</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="k">if</span> <span class="n">scan</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;sonar_range&#39;</span><span class="p">:</span> <span class="n">sonar</span><span class="o">.</span><span class="n">range</span> <span class="k">if</span> <span class="n">sonar</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;point_cloud&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)]</span>
+        <span class="p">}</span>
+
+        <span class="n">msg_env</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+        <span class="n">msg_env</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_env</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg_env</span><span class="p">)</span>
+
+        <span class="c1"># Serialize injury detection (image adjuster)</span>
+        <span class="n">adjusted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_adjuster</span><span class="o">.</span><span class="n">adjust</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+        <span class="n">msg_inj</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+        <span class="n">msg_inj</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">adjusted</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_inj</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg_inj</span><span class="p">)</span>
+
+        <span class="c1"># IMU data</span>
+        <span class="n">msg_imu</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+        <span class="n">msg_imu</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+            <span class="s1">&#39;linear_acceleration&#39;</span><span class="p">:</span> <span class="n">vector3_to_dict</span><span class="p">(</span><span class="n">imu</span><span class="o">.</span><span class="n">linear_acceleration</span><span class="p">)</span> <span class="k">if</span> <span class="n">imu</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;angular_velocity&#39;</span><span class="p">:</span> <span class="n">vector3_to_dict</span><span class="p">(</span><span class="n">imu</span><span class="o">.</span><span class="n">angular_velocity</span><span class="p">)</span> <span class="k">if</span> <span class="n">imu</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_imu</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg_imu</span><span class="p">)</span>
+
+
+        <span class="c1"># GPS/odometry</span>
+        <span class="n">msg_gps</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
+        <span class="n">msg_gps</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+            <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">odom</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="k">if</span> <span class="n">odom</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">odom</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="k">if</span> <span class="n">odom</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">odom</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="k">if</span> <span class="n">odom</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pub_gps</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg_gps</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">PerceptionNode</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Group A: Shady Abdelmalek, Francesca Amato, Gian Marco Balia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
