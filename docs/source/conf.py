@@ -50,3 +50,13 @@ exclude_patterns = ['*/setup.py']
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_show_sourcelink = False
+
+# Initial static context for GitHub repo and user
+html_context = {
+    "display_github": True,
+    "github_user": "CognitiveGA",
+    "github_repo": "CogAr_Assignment1",
+    "github_version": "main",
+    "conf_py_path": "/docs/source/"
+}

@@ -1,7 +1,7 @@
 rescue\_robot package
 =====================
 
-Subpackages
+Packages
 -----------
 
 .. toctree::

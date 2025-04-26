@@ -4,12 +4,6 @@ Component Diagram
 Cognitive Architecture for Robotics – Assignment 1 (2024/25)
 -------------------------------------------------------------
 
-**Authors**:
-
-- Francesca Amato - s7827998
-- Gian Marco Balia -
-- Shady Abdelmalek -
-
 **Topic**: Post-Earthquake Scenarios for Search and Rescue
 
 This project designs a cognitive architecture to manage a TIAGo robotic platform operating in post-earthquake environments. The robot is tasked with locating injured individuals, evaluating their medical conditions, and assessing the structural integrity of the environment.
