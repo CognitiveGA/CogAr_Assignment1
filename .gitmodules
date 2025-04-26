@@ -1,3 +1,4 @@
 [submodule "cogar_ros2_ws"]
 	path = cogar_ros2_ws
 	url = https://github.com/CognitiveGA/cogar_ros2_ws.git
+	branch = main
