@@ -6,160 +6,159 @@ Cognitive Architecture for Robotics – Assignment 1 (2024/25)
 
 **Authors**:
 - Francesca Amato - s7827998
-- Gian Marco Balia - 
-- Shady Abdelmalek - 
+- Gian Marco Balia -
+- Shady Abdelmalek -
 
 **Topic**: Post-Earthquake Scenarios for Search and Rescue
 
-This assignment aims to design a cognitive architecture for effectively managing a TIAGo robotic platform operating in post-earthquake environments. The robot is tasked with locating injured individuals, evaluating their medical conditions, and assessing the structural integrity of the surrounding environment.
+This project designs a cognitive architecture to manage a TIAGo robotic platform operating in post-earthquake environments. The robot is tasked with locating injured individuals, evaluating their medical conditions, and assessing the structural integrity of the environment.
 
-To accomplish these goals, the robot is equipped with the following sensors and devices:
-
-- RGB-D cameras
-- LiDARs
-- SONARs
+The robot is equipped with the following sensors and devices:
+- RGB-D Camera
+- LiDAR
+- SONAR
 - Force Sensors
 - Microphones
 - Speakers
 
-The primary tasks addressed by our architecture include:
+Primary tasks include:
 
-- **Assessment of victims’ conditions**: Evaluate consciousness, responsiveness, and injury severity to prioritise rescue efforts.
-- **Detection of structural hazards**: Identify cracks, unstable sections, and other criticalities in buildings through real-time structural analysis.
-- **Transmission of critical reports**: Send timely and detailed structural and victim status updates to a remote human supervisor.
-- **Mission status notification**: Upon completing full area exploration, notify the operator and await further instructions.
+- **Victim Condition Assessment**: Evaluate consciousness, responsiveness, and injury severity.
+- **Structural Hazard Detection**: Identify cracks, unstable sections, and other building risks.
+- **Critical Report Transmission**: Send detailed updates about victims and structures to a remote human supervisor.
+- **Mission Status Notification**: Notify completion of area exploration and await further instructions.
 
-Disaster Response Robot Architecture
--------------------------------------
+System Architecture
+--------------------
 
-The architecture is divided into subsystems, each responsible for specific components and functionalities, as outlined below:
+The architecture is divided into interconnected subsystems:
 
-1. **Search and Rescue Task**
+1. Search and Rescue Task
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - *Victim Detection and Reporting*: Detects the presence of victims using audio-visual cues. Once a victim is confirmed, an alert is sent to the operator, a priority level is assigned, and a signal is issued to the navigation system to approach the victim.
-   
-   - *Triage System*: Interacts verbally with the victim to assess responsiveness and consciousness through predefined questions. Captures and processes responses to evaluate the victim’s condition. In critical situations, an immediate alert is transmitted to the operator.
+This subsystem encompasses victim detection, prioritization, and interaction.
 
-2. **Structural Analysis**
+- **Victim Detection and Reporting** component: Detects victims through RGB-D and microphone data.
+  - **Interfaces**:
+    - Required: ``GPS`` → ``Position``, ``Microphone`` → ``Audio``, ``RGB-D`` → ``RBD / Point Cloud / Depth / Infrared``;
+    - Required:
+      - ``Position`` (type ``Odometry``, Stronglytype) from the ``GPS``;
+      - ``Audio`` (Stronglytype) from the ``Microphone``;
+      - ``RBD / Point Cloud / Depth / Infrared`` (Stronglytype) from the ``RGB-D Camera``;
+    - Provided: ``Stateless`` → ``Autonomus Navigation``;
+    - Provide victim localization, ID victims, and priority levels to the ``Triage System`` and ``Autonomus Navigation``;
+    
 
-   - *Obstacle and Damage Detection*: Continuously senses obstacles and structural anomalies along the robot’s path using multi-sensor input.
-   
-   - *Structural Risk Assessment*: Evaluates wall stability and other environmental conditions. Updates a log file and, when necessary, moves closer to hazardous areas to perform a more thorough inspection. Alerts the operator in case of critical findings.
+- **Triage System** component:
+  - Provided: Audio to Speakers, String to RT-Reporting
+  - Required: RGB-D ecc from RGB-D Cameras, Status Code from Mission Status Notification
+  - Interacts verbally with victims using speakers and microphones.
+  - Assesses victim responsiveness through predefined verbal interactions.
+  - Sends critical condition alerts to the ``Rescue Core System``.
 
-3. **Communication Interface**
-
-   - *Real-time Reporting*: Continuously transmits environmental and victim data to human supervisors.
-   
-   - *Mission Status Notification*: Aggregates reporting data to produce a mission status code, indicating the current operational state of the robot. Signals the completion of the mission and awaits further instructions.
-   
-   - *Graphical User Interface (GUI)*: Receives mission reports and allows the human operator to issue commands and control directives to the robot.
-   
-   - *Speakers and Microphones*: Enable verbal interaction with victims—microphones detect responses or environmental sounds, while speakers deliver verbal instructions or inquiries.
-
-4. **Core System**
-
-   - *SLAM (Simultaneous Localisation and Mapping)*: Fuses data from LiDAR, SONAR, and RGB-D cameras to simultaneously construct a detailed 3D map of the environment and localise the robot within it.
-   
-   - *Autonomous Navigation*: Processes navigation goals and continuously adjusts the robot’s trajectory based on updated map data and environmental changes, such as new obstacles or shifting debris.
-
-5. **Perception Subsystem**
-
-   - *Environmental Perception*: Utilises LiDAR and RGB-D cameras to generate a 3D map of the environment, detect victims and structural damages, and collect visual data for further analysis.
-   
-   - *Localisation Sensors*: Includes GPS for global positioning and IMUs (Inertial Measurement Units) to measure the robot’s velocity and acceleration, enhancing localization accuracy.
-
-System Interaction Flow
-------------------------
-
-- The robot continuously scans the environment using its sensors.
-- Upon detecting victims or structural instabilities, the system prioritises actions based on severity and proximity.
-- Real-time alerts and analytical reports are sent to a remote human supervisor.
-- When the mission is completed and the full map has been explored, the robot communicates its status and awaits further instructions.
-
-Components and Interfaces
---------------------------
-
-Rescue Perception
-^^^^^^^^^^^^^^^^^
-
-**Description**:  
-Responsible for environment sensing, obstacle detection, and victim localization.
 
 **Interfaces**:
-- Sends **environmental data** (maps, detected obstacles, victim locations) to ``Rescue Core System``.
-- Sends **structural data** to ``Rescue Structural Analysis``.
+- ``Rescue Search Tasks`` → ``Rescue Core System``: Victim localization, triage results.
 
-Rescue Core System
-^^^^^^^^^^^^^^^^^^
+2. Structural Analysis
+^^^^^^^^^^^^^^^^^^^^^^
 
-**Description**:  
-Acts as the central decision-making unit, coordinating the entire system based on inputs from other components.
+This subsystem evaluates the surrounding environment for hazards.
 
-**Interfaces**:
-- Receives **environmental data** from ``Rescue Perception``.
-- Receives **structural risk assessments** from ``Rescue Structural Analysis``.
-- Receives **external commands** from ``Rescue Communicator``.
-- Receives **search strategies** from ``Rescue Search Tasks``.
-- Sends **movement and action commands** to ``Rescue Actuator``.
-- Sends **status updates** to ``Rescue Communicator``.
-- Sends **analysis requests** to ``Rescue Structural Analysis``.
+- **Obstacle and Damage Detection** (Component: ``Rescue Perception``):
+  - Utilises LiDAR, SONAR, and RGB-D sensors.
+  - Detects obstacles, cracks, and structural anomalies.
+  - Provided: PointCloud to Structural Risk Assessment and Autonomus Navigation
+  - Required: PointCloud ecc from Merge Data
 
-Rescue Actuator
-^^^^^^^^^^^^^^^
-
-**Description**:  
-Manages the low-level actuation and movement of the robot based on high-level commands.
+- **Structural Risk Assessment** (Component: ``Rescue Structural Analysis``):
+  - Processes structural data received from ``Rescue Perception``.
+  - Evaluates wall stability and floor conditions.
+  - Sends risk assessments and safe path suggestions to ``Rescue Core System``.
+  - Provided: Command to Autonomous Navigation, Structural Condition to Real-time Reporting
 
 **Interfaces**:
-- Receives **movement and operation commands** from ``Rescue Core System``.
-- Sends **actuation feedback** (e.g., movement success, errors) to ``Rescue Core System``.
+- ``Rescue Perception`` → ``Rescue Structural Analysis``: Structural and obstacle data.
+- ``Rescue Structural Analysis`` → ``Rescue Core System``: Risk evaluations and warnings.
 
-Rescue Communicator
-^^^^^^^^^^^^^^^^^^^
-
-**Description**:  
-Handles communication with external operators and systems.
-
-**Interfaces**:
-- Receives **status reports** and **requests** from ``Rescue Core System``.
-- Sends **external commands** and **updates** to ``Rescue Core System``.
-
-Rescue Search Tasks
-^^^^^^^^^^^^^^^^^^^
-
-**Description**:  
-Designs and suggests strategies for exploration and victim searching based on the mission's goals.
-
-**Interfaces**:
-- Sends **search plans** and **victim localization hypotheses** to ``Rescue Core System``.
-
-Rescue Structural Analysis
+3. Communication Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Description**:  
-Assesses the stability of structures and evaluates potential risks during navigation.
+Manages the interaction between the robot and external operators.
+
+- **Real-time Reporting** (Component: ``Rescue Communicator``):
+  - Continuously sends environmental and victim updates.
+  - Required: Position from GPS, Medical Report from Triage System, Id ecc from Victim Detection and Reporting, Structural Condition from Risk Assessment
+  - Provided: Report to Mission Status Notification, Report to Gui Operator
+
+- **Mission Status Notification** (Component: ``Rescue Communicator``):
+  - Aggregates mission data and communicates mission completion.
+  - Required: Report from Real-time Reporting, commands from GUI Operator
+  - Provided: Status Code to GUI Operator and Mission Status Notification
+
+- **Graphical User Interface (GUI)** (External interface through ``Rescue Communicator``):
+  - Displays mission reports.
+  - Allows human operators to issue new commands.
+  - Required: Status Code from Mission Status Notification and Report from Real-time Reporting
+  - Provided: Command to Mission Status Notification and Autonomous Navigation
+
+
+- **Microphones** detect audio responses from victims or environmental sounds.
+  - Provide: Audio to Victim Detection and Reporting and Triage System
+- **Speakers** deliver verbal prompts and instructions.
+  - Required: Audio from Triage System
 
 **Interfaces**:
-- Receives **structural and environmental data** from ``Rescue Perception``.
-- Receives **risk evaluation requests** from ``Rescue Core System``.
-- Sends **risk assessments** and **safe path suggestions** to ``Rescue Core System``.
+- ``Rescue Core System`` → ``Rescue Communicator``: Status reports and mission data.
+- ``Rescue Communicator`` → ``Rescue Core System``: External operator commands.
 
-Summary of Component Interactions
-----------------------------------
+4. Core System
+^^^^^^^^^^^^^^
 
-The main interactions among components are:
+The brain of the robot, managing and coordinating all subsystems.
 
-- ``Rescue Perception`` → ``Rescue Core System``: provides environment understanding.
-- ``Rescue Perception`` → ``Rescue Structural Analysis``: provides structural data.
-- ``Rescue Structural Analysis`` → ``Rescue Core System``: provides risk assessments.
-- ``Rescue Search Tasks`` → ``Rescue Core System``: provides search strategies.
-- ``Rescue Core System`` → ``Rescue Actuator``: sends movement commands.
-- ``Rescue Actuator`` → ``Rescue Core System``: provides actuator feedback.
-- ``Rescue Communicator`` ↔ ``Rescue Core System``: exchanges commands and status updates.
+- **SLAM** (Component: ``Rescue Core System``):
+  - Integrates inputs from perception, structural analysis, and search tasks.
+  - Decides on movement, inspection, reporting, and interaction priorities.
+  - Sends movement goals and actuation commands to ``Rescue Actuator``.
+  - Required: PointCloud ecc from Merge Data, Odometry from Motor Encoders
+  - Provided: PointCloud to Autonomous Navigation
+  
+
+
+6. Perception Subsystem
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Responsible for acquiring and processing raw sensory data.
+
+- **Environmental Perception** (Component: ``Rescue Perception``):
+  - Fuses RGB-D, LiDAR, and SONAR data to generate 3D maps.
+  - Detects victims, obstacles, and structural damages.
+
+- **Localization Sensors**:
+  - GPS (for outdoor/global localization).
+  - IMUs (Inertial Measurement Units) for enhanced accuracy indoors.
+
+**Interfaces**:
+- ``Rescue Perception`` → ``Rescue Core System``: Real-time mapping and obstacle information.
+- ``Rescue Perception`` → ``Rescue Structural Analysis``: Raw structural sensing data.
+
+Subsystem Interaction Summary
+------------------------------
+
+- ``Rescue Perception`` provides mapping and detection data to ``Rescue Core System`` and ``Rescue Structural Analysis``.
+- ``Rescue Search Tasks`` suggests search plans and reports victim findings to ``Rescue Core System``.
+- ``Rescue Structural Analysis`` assesses risks and advises ``Rescue Core System``.
+- ``Rescue Core System`` coordinates actions, sending motion plans to ``Rescue Actuator`` and mission updates to ``Rescue Communicator``.
+- ``Rescue Actuator`` executes physical movements and reports outcomes.
+- ``Rescue Communicator`` ensures continuous operator interaction and updates.
+
+Graphical Representation
+-------------------------
 
 .. note::
 
-   The actual graphical Component Diagram is included as an image below.
+   The visual component diagram summarizing these subsystems and their interactions is included below.
 
 .. image:: images/component_diagram.png
    :alt: Component Diagram
