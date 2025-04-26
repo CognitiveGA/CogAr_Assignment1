@@ -21,7 +21,7 @@ release = '0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.viewcode',
-    'sphinx.ext.todo', 'sphinxcontrib.plantuml']
+    'sphinx.ext.todo']
 
 autodoc_mock_imports = [
     "rclpy",
@@ -44,8 +44,6 @@ autodoc_mock_imports = [
 
 templates_path = ['_templates']
 exclude_patterns = ['*/setup.py']
-plantuml = 'plantuml'
-
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
