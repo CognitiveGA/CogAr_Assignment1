@@ -6,8 +6,10 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../../cogar_ros2_ws/src'))
+print(sys.path)
 
 show_authors = True
+add_module_names = False
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information

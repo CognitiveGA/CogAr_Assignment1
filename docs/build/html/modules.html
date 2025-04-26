@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="rescue_robot package" href="rescue_robot.html" />
+    <link rel="next" title="Rescue Robot Package" href="rescue_robot/index.html" />
     <link rel="prev" title="TIAGo Post-earthquake scenario documentation" href="index.html" /> 
 </head>
 
@@ -45,10 +45,12 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">rescue_robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rescue_robot.html">rescue_robot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/index.html">Rescue Robot Package</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="component.html">Component Diagram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_machine.html">State Machine</a></li>
 </ul>
 
         </div>
@@ -79,53 +81,118 @@
 <h1>rescue_robot<a class="headerlink" href="#rescue-robot" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rescue_robot.html">rescue_robot package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rescue_robot.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rescue_robot.rescue_actuator.html">rescue_robot.rescue_actuator package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_actuator.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_actuator.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_actuator.html#rescue-robot-rescue-actuator-setup-module">rescue_robot.rescue_actuator.setup module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_actuator.html#module-rescue_robot.rescue_actuator">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rescue_robot/index.html">Rescue Robot Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/rescue_robot.html">rescue_robot package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/rescue_robot.html#subpackages">Subpackages</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="rescue_robot.rescue_communicator.html">rescue_robot.rescue_communicator package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_communicator.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_communicator.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_communicator.html#rescue-robot-rescue-communicator-setup-module">rescue_robot.rescue_communicator.setup module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_communicator.html#module-rescue_robot.rescue_communicator">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/rescue_robot.html#module-rescue_robot">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="rescue_robot.rescue_core_system.html">rescue_robot.rescue_core_system package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_core_system.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_core_system.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_core_system.html#rescue-robot-rescue-core-system-setup-module">rescue_robot.rescue_core_system.setup module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_core_system.html#module-rescue_robot.rescue_core_system">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/actuator/index.html">Actuator Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.html">actuator_overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.rescue_actuator.html">actuator_details</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="rescue_robot.rescue_perception.html">rescue_robot.rescue_perception package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_perception.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_perception.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_perception.html#rescue-robot-rescue-perception-setup-module">rescue_robot.rescue_perception.setup module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_perception.html#module-rescue_robot.rescue_perception">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="rescue_robot.rescue_search_tasks.html">rescue_robot.rescue_search_tasks package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_search_tasks.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_search_tasks.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_search_tasks.html#rescue-robot-rescue-search-tasks-setup-module">rescue_robot.rescue_search_tasks.setup module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_search_tasks.html#module-rescue_robot.rescue_search_tasks">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="rescue_robot.rescue_structural_analysis.html">rescue_robot.rescue_structural_analysis package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_structural_analysis.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_structural_analysis.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_structural_analysis.html#rescue-robot-rescue-structural-analysis-setup-module">rescue_robot.rescue_structural_analysis.setup module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rescue_robot.rescue_structural_analysis.html#module-rescue_robot.rescue_structural_analysis">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.rescue_actuator.html">actuator_details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.rescue_actuator.html#module-rescue_robot.rescue_actuator.rescue_actuator.actuator_node">actuator_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.rescue_actuator.html#module-rescue_robot.rescue_actuator.rescue_actuator.motor">motor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.rescue_actuator.html#module-rescue_robot.rescue_actuator.rescue_actuator.motor_controller">motor_controller</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rescue_robot.html#module-rescue_robot">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/communicator/index.html">Communicator Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.html">communicator_overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html">communicator_details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html">communicator_details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#module-rescue_robot.rescue_communicator.rescue_communicator.communicator_node">communicator_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#module-rescue_robot.rescue_communicator.rescue_communicator.microphone">microphone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#module-rescue_robot.rescue_communicator.rescue_communicator.mission_status_notification">notification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#module-rescue_robot.rescue_communicator.rescue_communicator.real_time_reporter">reporter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#module-rescue_robot.rescue_communicator.rescue_communicator.speaker">speaker</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/core_system/index.html">Core System Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.html">rescue_robot.rescue_core_system package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.html#rescue-robot-rescue-core-system-setup-module">rescue_robot.rescue_core_system.setup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.html#module-rescue_robot.rescue_core_system">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.rescue_core_system.html">rescue_robot.rescue_core_system.rescue_core_system package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.rescue_core_system.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.rescue_core_system.html#module-rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation">rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.rescue_core_system.html#module-rescue_robot.rescue_core_system.rescue_core_system.core_system_node">rescue_robot.rescue_core_system.rescue_core_system.core_system_node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.rescue_core_system.html#module-rescue_robot.rescue_core_system.rescue_core_system.mapping">rescue_robot.rescue_core_system.rescue_core_system.mapping module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/core_system/rescue_robot.rescue_core_system.rescue_core_system.html#module-rescue_robot.rescue_core_system.rescue_core_system">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/perception/index.html">Perception Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.html">rescue_robot.rescue_perception package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.html#rescue-robot-rescue-perception-setup-module">rescue_robot.rescue_perception.setup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.html#module-rescue_robot.rescue_perception">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html">rescue_robot.rescue_perception.rescue_perception package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.gps">rescue_robot.rescue_perception.rescue_perception.gps module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.image_adjuster">rescue_robot.rescue_perception.rescue_perception.image_adjuster module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.imu">rescue_robot.rescue_perception.rescue_perception.imu module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.lidar">rescue_robot.rescue_perception.rescue_perception.lidar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.perception_node">rescue_robot.rescue_perception.rescue_perception.perception_node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.rgb_camera">rescue_robot.rescue_perception.rescue_perception.rgb_camera module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception.sonar">rescue_robot.rescue_perception.rescue_perception.sonar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#module-rescue_robot.rescue_perception.rescue_perception">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/search_tasks/index.html">Search Tasks Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.html">rescue_robot.rescue_search_tasks package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.html#rescue-robot-rescue-search-tasks-setup-module">rescue_robot.rescue_search_tasks.setup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.html#module-rescue_robot.rescue_search_tasks">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.rescue_search_tasks.html">rescue_robot.rescue_search_tasks.rescue_search_tasks package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.rescue_search_tasks.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.rescue_search_tasks.html#module-rescue_robot.rescue_search_tasks.rescue_search_tasks.search_and_rescue_node">rescue_robot.rescue_search_tasks.rescue_search_tasks.search_and_rescue_node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.rescue_search_tasks.html#module-rescue_robot.rescue_search_tasks.rescue_search_tasks.triage_system">rescue_robot.rescue_search_tasks.rescue_search_tasks.triage_system module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.rescue_search_tasks.html#module-rescue_robot.rescue_search_tasks.rescue_search_tasks.victim_detection_and_reporting">rescue_robot.rescue_search_tasks.rescue_search_tasks.victim_detection_and_reporting module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/search_tasks/rescue_robot.rescue_search_tasks.rescue_search_tasks.html#module-rescue_robot.rescue_search_tasks.rescue_search_tasks">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/structural_analysis/index.html">Structural Analysis Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.html">rescue_robot.rescue_structural_analysis package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.html#rescue-robot-rescue-structural-analysis-setup-module">rescue_robot.rescue_structural_analysis.setup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.html#module-rescue_robot.rescue_structural_analysis">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html">rescue_robot.rescue_structural_analysis.rescue_structural_analysis package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#module-rescue_robot.rescue_structural_analysis.rescue_structural_analysis.obstacle_and_damage_detection">rescue_robot.rescue_structural_analysis.rescue_structural_analysis.obstacle_and_damage_detection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#module-rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node">rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#module-rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_risk_assessment">rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_risk_assessment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#module-rescue_robot.rescue_structural_analysis.rescue_structural_analysis">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -137,7 +204,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="TIAGo Post-earthquake scenario documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rescue_robot.html" class="btn btn-neutral float-right" title="rescue_robot package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rescue_robot/index.html" class="btn btn-neutral float-right" title="Rescue Robot Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

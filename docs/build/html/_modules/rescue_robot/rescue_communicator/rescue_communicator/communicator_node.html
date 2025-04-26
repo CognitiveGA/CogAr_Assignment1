@@ -42,6 +42,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../modules.html">rescue_robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../component.html">Component Diagram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../diagrams.html">UML diagrams</a></li>
 </ul>
 
@@ -99,7 +100,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">rescue_communicator.mission_status_notification</span><span class="w"> </span><span class="kn">import</span> <span class="n">MissionStatusNotification</span>
 
 <div class="viewcode-block" id="CommunicatorNode">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">CommunicatorNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ROS 2 node for managing communication devices and handling audio data.</span>
@@ -142,7 +143,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="n">timer_period</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">capture_audio</span><span class="p">)</span>
 
 <div class="viewcode-block" id="CommunicatorNode.capture_audio">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode.capture_audio">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode.capture_audio">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">capture_audio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Simulate capturing audio from the environment and publish it to the &#39;audio_in&#39; topic.</span>
@@ -155,7 +156,7 @@
 
 
 <div class="viewcode-block" id="CommunicatorNode.receive_audio_callback">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode.receive_audio_callback">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode.receive_audio_callback">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">receive_audio_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Callback function to handle received audio messages.</span>
@@ -171,7 +172,7 @@
 
 
 <div class="viewcode-block" id="main">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.main">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/communicator/rescue_robot.rescue_communicator.rescue_communicator.html#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.main">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Entry point for the CommunicatorNode.</span>
