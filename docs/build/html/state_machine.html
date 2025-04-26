@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+  <title>Behavioral Diagram &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -42,9 +42,21 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="modules.html">rescue_robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="diagrams.html">UML diagrams</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="component.html">Component Diagram</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Behavioral Diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-the-diagram">Overview of the Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#risk-assessment">1. Risk Assessment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#victim-detection-and-reporting">2. Victim Detection and Reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#triage">3. Triage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphical-representation">Graphical Representation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -62,7 +74,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="diagrams.html">UML diagrams</a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">Behavioral Diagram</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/state_machine.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,7 +84,97 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="behavioral-diagram">
+<h1>Behavioral Diagram<a class="headerlink" href="#behavioral-diagram" title="Link to this heading"></a></h1>
+<p>The following section presents the <strong>Behavioral State Machine</strong> designed to guide the autonomous decision-making processes of the robotic system during search and rescue operations.
+The diagram (see figure below) illustrates the high-level behavior of the robot as it navigates between critical operational states such as risk assessment, victim detection, and triage activities.</p>
+<p>The structure is modular, enabling robust, reactive behaviors while maintaining clear transitions among different stages depending on environmental and victim conditions.</p>
+<section id="overview-of-the-diagram">
+<h2>Overview of the Diagram<a class="headerlink" href="#overview-of-the-diagram" title="Link to this heading"></a></h2>
+<p>The Behavioral Diagram is organized into three major functional blocks:</p>
+<ul class="simple">
+<li><p><strong>Risk Assessment</strong></p></li>
+<li><p><strong>Victim Detection and Reporting</strong></p></li>
+<li><p><strong>Triage</strong></p></li>
+</ul>
+<p>Each block is responsible for a critical mission aspect and incorporates specific functionalities and transitions to manage uncertainties in disaster environments.</p>
+</section>
+<section id="risk-assessment">
+<h2>1. Risk Assessment<a class="headerlink" href="#risk-assessment" title="Link to this heading"></a></h2>
+<p><strong>Purpose:</strong>
+To autonomously analyze the surrounding environment and identify potential structural risks that may compromise navigation safety or endanger human lives.</p>
+<p><strong>Key Activities:</strong></p>
+<ul class="simple">
+<li><p><strong>Scan Environment:</strong> Continuously monitor the environment using a combination of RGB-D cameras, LiDARs, SONARs, and IMUs sensors.</p></li>
+<li><p><strong>Anomaly Detection:</strong> Detect visible cracks, structural deformations, and instability.</p></li>
+<li><p><strong>Assess Risk Level:</strong> Classify anomalies into risk categories (Low, Medium, High).</p></li>
+<li><p><strong>Update Log and Send Alerts:</strong> Record observations and update the navigation system in case of high risk.</p></li>
+</ul>
+<p><strong>Transitions:</strong></p>
+<ul class="simple">
+<li><p><strong>High Risk Detected:</strong> Send an alert and immediately notify the human operator.</p></li>
+<li><p><strong>No Anomalies:</strong> Continue standard exploration.</p></li>
+</ul>
+</section>
+<section id="victim-detection-and-reporting">
+<h2>2. Victim Detection and Reporting<a class="headerlink" href="#victim-detection-and-reporting" title="Link to this heading"></a></h2>
+<p><strong>Purpose:</strong>
+To autonomously locate and preliminarily assess potential victims using visual and auditory data, supporting quick triage and prioritization.</p>
+<p><strong>Key Activities:</strong></p>
+<ul class="simple">
+<li><p><strong>Process Image:</strong> Analyze visual data from the RGB-D camera to detect human presence.</p></li>
+<li><p><strong>Verify Detection:</strong> Confirm the presence of a victim through additional sensory validation.</p></li>
+<li><p><strong>Check and Assign ID:</strong> Ensure no duplication and assign a unique identifier based on spatial references.</p></li>
+<li><p><strong>Assign Priority:</strong> Categorize victims according to pre-set emergency severity criteria.</p></li>
+<li><p><strong>Update Victim List:</strong> Maintain an updated list for navigation and reporting.</p></li>
+</ul>
+<p><strong>Transitions:</strong></p>
+<ul class="simple">
+<li><p><strong>Victim Confirmed and New:</strong> Direct navigation to the victim’s location.</p></li>
+<li><p><strong>No New Victim Detected:</strong> Resume exploration.</p></li>
+<li><p><strong>Higher Priority Victim Found:</strong> Change current target accordingly.</p></li>
+</ul>
+</section>
+<section id="triage">
+<h2>3. Triage<a class="headerlink" href="#triage" title="Link to this heading"></a></h2>
+<p><strong>Purpose:</strong>
+To perform an initial medical assessment of the victim upon reaching their location, generating a preliminary medical report to assist emergency teams.</p>
+<p><strong>Key Activities:</strong></p>
+<ul class="simple">
+<li><p><strong>Read Report:</strong> Search the data missing from the report.</p></li>
+<li><p><strong>Generate Question:</strong> Generate the question autonomously or passed by the human operator.</p></li>
+<li><p><strong>Acquire Data:</strong> Acquire the data from vision and michropones.</p></li>
+<li><p><strong>Elaborate Data:</strong> Elaborate the acquire data to estimate the conciusness and the state of the victim.</p></li>
+<li><p><strong>Update and Send Report:</strong> Consolidate data into a structured triage report and transmit it to the operator.</p></li>
+<li><p><strong>Perform Instructions:</strong> Execute specific actions upon operator request using the robot’s speaker system or ask to the victim to do so.</p></li>
+<li><p><strong>Acquire image:</strong> Acquire an image of the victim to be used in the repor.</p></li>
+<li><p><strong>Classify:</strong> Classify the victim’s injurues based on the acquired data.</p></li>
+</ul>
+<p><strong>Transitions:</strong></p>
+<ul class="simple">
+<li><p><strong>Triage Complete:</strong> Update victim status and proceed to the next objective.</p></li>
+<li><p><strong>Unconscious Victim Detected:</strong> Send an urgent medical report based on injury analysis.</p></li>
+<li><p><strong>Operator Instructions:</strong> Carry out requested actions before resuming exploration.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The Behavioral State Machine is designed to operate continuously in real-time, handling dynamic changes in environmental conditions and victim prioritization.</p></li>
+<li><p>Each major state features internal sub-processes for data acquisition, verification, and structured decision-making.</p></li>
+<li><p>Critical transitions between states ensure that both risk and victim conditions are always re-evaluated at each operational cycle.</p></li>
+</ul>
+</section>
+<section id="graphical-representation">
+<h2>Graphical Representation<a class="headerlink" href="#graphical-representation" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The visual state machine diagram summarizing these behavioral states and their transitions is included below.</p>
+</div>
+<img alt="Behavioral State Machine Diagram" class="align-center" src="_images/state_machine.png" />
+</section>
+</section>
+
 
            </div>
           </div>
