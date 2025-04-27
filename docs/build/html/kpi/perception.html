@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perception Subsystem KPIs &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Actuator Subsystem KPIs" href="actuator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TIAGo Post-earthquake scenario
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">KPIs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="search_and_rescue_task.html">Search and Rescue Tasks KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.html">Structural Analysis KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communicator.html">Communicator Subsystem KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_system.html">Core System KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actuator.html">Actuator Subsystem KPIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Perception Subsystem KPIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subsystem-overview">Subsystem Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-data-availability">Sensor Data Availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-data-accuracy">Sensor Data Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-fusion-latency">Sensor Fusion Latency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environmental-representation-completeness">Environmental Representation Completeness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#imu-gps-stability">IMU/GPS Stability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-table">Summary Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TIAGo Post-earthquake scenario</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">KPIs</a></li>
+      <li class="breadcrumb-item active">Perception Subsystem KPIs</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/kpi/perception.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="perception-subsystem-kpis">
+<h1>Perception Subsystem KPIs<a class="headerlink" href="#perception-subsystem-kpis" title="Link to this heading"></a></h1>
+<p>This document defines the <strong>Key Performance Indicators (KPIs)</strong> for evaluating the <cite>rescue_perception</cite> component in the TIAGo Post-Earthquake Rescue Robot system.</p>
+<section id="subsystem-overview">
+<h2>Subsystem Overview<a class="headerlink" href="#subsystem-overview" title="Link to this heading"></a></h2>
+<p>The Perception subsystem is responsible for:
+- Acquiring environmental and situational data through various sensors (camera, LiDAR, SONAR, GPS, IMU).
+- Processing sensor data to produce reliable environmental measurements.
+- Providing high-quality data streams to downstream subsystems (search &amp; rescue tasks, structural analysis, core system).</p>
+</section>
+<section id="sensor-data-availability">
+<h2>Sensor Data Availability<a class="headerlink" href="#sensor-data-availability" title="Link to this heading"></a></h2>
+<p>This checks how often the system successfully gets and shares sensor information over time. We want the sensors to work all the time without dropping data. We measure it by comparing how much data we expected to how much we actually got.</p>
+</section>
+<section id="sensor-data-accuracy">
+<h2>Sensor Data Accuracy<a class="headerlink" href="#sensor-data-accuracy" title="Link to this heading"></a></h2>
+<p>This shows how correct the sensor readings are compared to the real world. We want the sensors to be as close to perfect as possible. We check it by comparing sensor results to what we know is true.</p>
+</section>
+<section id="sensor-fusion-latency">
+<h2>Sensor Fusion Latency<a class="headerlink" href="#sensor-fusion-latency" title="Link to this heading"></a></h2>
+<p>This measures how fast the system combines different sensor inputs into useful information. The faster, the better for real-time actions. We check it by timing how long it takes from getting raw data to sharing the results.</p>
+</section>
+<section id="environmental-representation-completeness">
+<h2>Environmental Representation Completeness<a class="headerlink" href="#environmental-representation-completeness" title="Link to this heading"></a></h2>
+<p>This is about how well the system captures the full shape of the environment, like 3D maps or heat images. We want it to cover everything without missing spots. We measure it by checking the detail and gaps in the data.</p>
+</section>
+<section id="imu-gps-stability">
+<h2>IMU/GPS Stability<a class="headerlink" href="#imu-gps-stability" title="Link to this heading"></a></h2>
+<p>This checks how steady the location and movement data stays over time when not moving. Good stability means no drifting or random jumps. We measure it by looking at how much the readings change when they should stay still.</p>
+</section>
+<section id="summary-table">
+<h2>Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Sensor Data KPIs</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 40.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>KPI</p></th>
+<th class="head"><p>Measurement Method</p></th>
+<th class="head"><p>Target Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sensor Data Availability</p></td>
+<td><p>Message rate monitoring</p></td>
+<td><p>&gt; 98% uptime</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sensor Data Accuracy</p></td>
+<td><p>Ground truth comparison</p></td>
+<td><p>&lt; 5% error</p></td>
+</tr>
+<tr class="row-even"><td><p>Sensor Fusion Latency</p></td>
+<td><p>Timestamp difference logging</p></td>
+<td><p>&lt; 0.5 second</p></td>
+</tr>
+<tr class="row-odd"><td><p>Environmental Representation Completeness</p></td>
+<td><p>Density and continuity analysis</p></td>
+<td><p>&gt; 90% area</p></td>
+</tr>
+<tr class="row-even"><td><p>IMU/GPS Stability</p></td>
+<td><p>Variance analysis</p></td>
+<td><p>&lt; 2% drift</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="actuator.html" class="btn btn-neutral float-left" title="Actuator Subsystem KPIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Group A: Shady Abdelmalek, Francesca Amato, Gian Marco Balia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

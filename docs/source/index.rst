@@ -30,3 +30,9 @@ Primary tasks include:
 
    diagrams   
    modules
+   kpi/index.rst
+
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

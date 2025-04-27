@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Perception Module" href="../perception/index.html" />
+    <link rel="next" title="Actuator Module" href="../actuator/index.html" />
     <link rel="prev" title="core_system_overview" href="rescue_robot.rescue_core_system.html" /> 
 </head>
 
@@ -47,20 +47,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../../diagrams.html">UML diagrams</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">Dummy Code</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Rescue Robot Module</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../actuator/index.html">Actuator Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../search_tasks/index.html">Search Tasks Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structural_analysis/index.html">Structural Analysis Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../communicator/index.html">Communicator Module</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Core System Module</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="rescue_robot.rescue_core_system.html">core_system_overview</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">core_system_details</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../actuator/index.html">Actuator Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../perception/index.html">Perception Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../search_tasks/index.html">Search Tasks Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../structural_analysis/index.html">Structural Analysis Module</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../kpi/index.html">KPIs</a></li>
 </ul>
 
         </div>
@@ -97,7 +98,7 @@
 <span id="core-system-node"></span><h2>core_system_node<a class="headerlink" href="#module-rescue_robot.rescue_core_system.rescue_core_system.core_system_node" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_core_system.rescue_core_system.core_system_node.CoreSystemNode">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CoreSystemNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_core_system/rescue_core_system/core_system_node.html#CoreSystemNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_core_system.rescue_core_system.core_system_node.CoreSystemNode" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CoreSystemNode</span></span><a class="reference internal" href="../../_modules/rescue_robot/rescue_core_system/rescue_core_system/core_system_node.html#CoreSystemNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_core_system.rescue_core_system.core_system_node.CoreSystemNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_core_system.rescue_core_system.core_system_node.CoreSystemNode.env_callback">
@@ -116,7 +117,7 @@
 <span id="navigation"></span><h2>navigation<a class="headerlink" href="#module-rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation.AutonomousNavigation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AutonomousNavigation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">safety_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_core_system/rescue_core_system/autonomous_navigation.html#AutonomousNavigation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation.AutonomousNavigation" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AutonomousNavigation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">safety_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_core_system/rescue_core_system/autonomous_navigation.html#AutonomousNavigation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation.AutonomousNavigation" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_core_system.rescue_core_system.autonomous_navigation.AutonomousNavigation.get_log">
@@ -135,7 +136,7 @@
 <span id="mapping-module"></span><h2>mapping module<a class="headerlink" href="#module-rescue_robot.rescue_core_system.rescue_core_system.mapping" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_core_system.rescue_core_system.mapping.Mapping">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_core_system/rescue_core_system/mapping.html#Mapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_core_system.rescue_core_system.mapping.Mapping" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_core_system/rescue_core_system/mapping.html#Mapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_core_system.rescue_core_system.mapping.Mapping" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_core_system.rescue_core_system.mapping.Mapping.build_map">
@@ -157,7 +158,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="rescue_robot.rescue_core_system.html" class="btn btn-neutral float-left" title="core_system_overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../perception/index.html" class="btn btn-neutral float-right" title="Perception Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../actuator/index.html" class="btn btn-neutral float-right" title="Actuator Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

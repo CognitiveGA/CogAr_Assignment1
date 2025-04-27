@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search and Rescue Tasks KPIs &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Structural Analysis KPIs" href="structural_analysis.html" />
+    <link rel="prev" title="KPIs" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TIAGo Post-earthquake scenario
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">KPIs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Search and Rescue Tasks KPIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subsystem-overview">Subsystem Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#victim-detection-precision">Victim Detection Precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#victim-detection-recall">Victim Detection Recall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#triage-accuracy">Triage Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detection-reaction-time">Detection Reaction Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-success-rate">Reporting Success Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-table">Summary Table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.html">Structural Analysis KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communicator.html">Communicator Subsystem KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core_system.html">Core System KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actuator.html">Actuator Subsystem KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html">Perception Subsystem KPIs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TIAGo Post-earthquake scenario</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">KPIs</a></li>
+      <li class="breadcrumb-item active">Search and Rescue Tasks KPIs</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/kpi/search_and_rescue_task.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="search-and-rescue-tasks-kpis">
+<h1>Search and Rescue Tasks KPIs<a class="headerlink" href="#search-and-rescue-tasks-kpis" title="Link to this heading"></a></h1>
+<p>This document defines the <strong>Key Performance Indicators (KPIs)</strong> for evaluating the <cite>rescue_search_tasks</cite> component in the TIAGo Post-Earthquake Rescue Robot system.</p>
+<section id="subsystem-overview">
+<h2>Subsystem Overview<a class="headerlink" href="#subsystem-overview" title="Link to this heading"></a></h2>
+<p>The Search and Rescue Tasks subsystem is responsible for:
+- Detecting potential victims based on sensor and audio data.
+- Prioritizing victims based on severity and context.
+- Communicating findings to the communication subsystem.</p>
+</section>
+<section id="victim-detection-precision">
+<h2>Victim Detection Precision<a class="headerlink" href="#victim-detection-precision" title="Link to this heading"></a></h2>
+<p>Precision means how often the system finds real victims without making mistakes. We want it to be really good at only pointing out real victims, not random things. To check it, we compare what it finds to what’s actually there.</p>
+</section>
+<section id="victim-detection-recall">
+<h2>Victim Detection Recall<a class="headerlink" href="#victim-detection-recall" title="Link to this heading"></a></h2>
+<p>Recall is about making sure the system finds every victim, without missing any. We don’t want to leave anyone behind! We check it by seeing how many real victims it finds compared to how many were really there.</p>
+</section>
+<section id="triage-accuracy">
+<h2>Triage Accuracy<a class="headerlink" href="#triage-accuracy" title="Link to this heading"></a></h2>
+<p>Triage accuracy means how well the system decides how badly someone needs help. It’s important because it helps save the people who need it the most first. We check this by comparing its decisions to what real doctors would choose.</p>
+</section>
+<section id="detection-reaction-time">
+<h2>Detection Reaction Time<a class="headerlink" href="#detection-reaction-time" title="Link to this heading"></a></h2>
+<p>This is how fast the system reacts after it gets new information. In an emergency, every second counts! We measure how much time it takes from getting the data to sending out a warning.</p>
+</section>
+<section id="reporting-success-rate">
+<h2>Reporting Success Rate<a class="headerlink" href="#reporting-success-rate" title="Link to this heading"></a></h2>
+<p>This is about making sure the system doesn’t just find victims but also successfully tells the people in charge. We want every important message to get through. We check it by seeing if the messages are sent and received correctly.</p>
+</section>
+<section id="summary-table">
+<h2>Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">KPI Metrics</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>KPI</p></th>
+<th class="head"><p>Measurement Method</p></th>
+<th class="head"><p>Target Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Victim Detection Precision</p></td>
+<td><p>Ground truth comparison</p></td>
+<td><p>&gt; 85%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Victim Detection Recall</p></td>
+<td><p>Ground truth comparison</p></td>
+<td><p>&gt; 90%</p></td>
+</tr>
+<tr class="row-even"><td><p>Triage Accuracy</p></td>
+<td><p>Human expert validation</p></td>
+<td><p>&gt; 85%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Detection Reaction Time</p></td>
+<td><p>Timestamp logging</p></td>
+<td><p>&lt; 1 second</p></td>
+</tr>
+<tr class="row-even"><td><p>Reporting Success Rate</p></td>
+<td><p>Message transmission tracking</p></td>
+<td><p>&gt; 98%</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="KPIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="structural_analysis.html" class="btn btn-neutral float-right" title="Structural Analysis KPIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Group A: Shady Abdelmalek, Francesca Amato, Gian Marco Balia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

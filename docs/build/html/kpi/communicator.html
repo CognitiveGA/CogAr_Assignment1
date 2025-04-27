@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communicator Subsystem KPIs &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Core System KPIs" href="core_system.html" />
+    <link rel="prev" title="Structural Analysis KPIs" href="structural_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TIAGo Post-earthquake scenario
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">KPIs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="search_and_rescue_task.html">Search and Rescue Tasks KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structural_analysis.html">Structural Analysis KPIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Communicator Subsystem KPIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subsystem-overview">Subsystem Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audio-capture-rate">Audio Capture Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audio-delivery-success-rate">Audio Delivery Success Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-time-reporting-latency">Real-Time Reporting Latency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notification-accuracy">Notification Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audio-quality-consistency">Audio Quality Consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-table">Summary Table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core_system.html">Core System KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actuator.html">Actuator Subsystem KPIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html">Perception Subsystem KPIs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TIAGo Post-earthquake scenario</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">KPIs</a></li>
+      <li class="breadcrumb-item active">Communicator Subsystem KPIs</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/kpi/communicator.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="communicator-subsystem-kpis">
+<h1>Communicator Subsystem KPIs<a class="headerlink" href="#communicator-subsystem-kpis" title="Link to this heading"></a></h1>
+<p>This document defines the <strong>Key Performance Indicators (KPIs)</strong> for evaluating the <cite>rescue_communicator</cite> component in the TIAGo Post-Earthquake Rescue Robot system.</p>
+<section id="subsystem-overview">
+<h2>Subsystem Overview<a class="headerlink" href="#subsystem-overview" title="Link to this heading"></a></h2>
+<p>The Communicator subsystem is responsible for:
+- Capturing environmental audio through microphones.
+- Relaying communication via speakers.
+- Reporting system status updates in real-time.
+- Notifying mission progress or critical events.</p>
+</section>
+<section id="audio-capture-rate">
+<h2>Audio Capture Rate<a class="headerlink" href="#audio-capture-rate" title="Link to this heading"></a></h2>
+<p>This measures how many audio samples the system captures every second. We want the sound recording to stay steady and fast for quick reactions. We check it by looking at how often new audio messages are published.</p>
+</section>
+<section id="audio-delivery-success-rate">
+<h2>Audio Delivery Success Rate<a class="headerlink" href="#audio-delivery-success-rate" title="Link to this heading"></a></h2>
+<p>This shows how many outgoing audio messages are received and played correctly. We want every message to get through without being lost. We measure it by comparing how many messages were sent versus how many were actually used.</p>
+</section>
+<section id="real-time-reporting-latency">
+<h2>Real-Time Reporting Latency<a class="headerlink" href="#real-time-reporting-latency" title="Link to this heading"></a></h2>
+<p>This measures how fast the system reports important events like finding a victim. The quicker it reports, the better for the mission. We check the time between when something happens and when the report is sent.</p>
+</section>
+<section id="notification-accuracy">
+<h2>Notification Accuracy<a class="headerlink" href="#notification-accuracy" title="Link to this heading"></a></h2>
+<p>This shows if the mission updates the robot sends are true to what’s actually happening. We want to make sure operators get correct info. We check it by comparing the notifications to real robot states in the system logs.</p>
+</section>
+<section id="audio-quality-consistency">
+<h2>Audio Quality Consistency<a class="headerlink" href="#audio-quality-consistency" title="Link to this heading"></a></h2>
+<p>This checks if the audio sounds clear and strong over time. We want the sound to stay easy to hear without weird noise or changes. We measure it by studying how clean and steady the audio signals are.</p>
+</section>
+<section id="summary-table">
+<h2>Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Audio and Reporting KPIs</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>KPI</p></th>
+<th class="head"><p>Measurement Method</p></th>
+<th class="head"><p>Target Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Audio Capture Rate</p></td>
+<td><p>Topic publish frequency check</p></td>
+<td><p>&gt; 95% uptime</p></td>
+</tr>
+<tr class="row-odd"><td><p>Audio Delivery Success Rate</p></td>
+<td><p>Sent vs played comparison</p></td>
+<td><p>&gt; 98% success</p></td>
+</tr>
+<tr class="row-even"><td><p>Real-Time Reporting Latency</p></td>
+<td><p>Timestamp difference logging</p></td>
+<td><p>&lt; 0.5 second</p></td>
+</tr>
+<tr class="row-odd"><td><p>Notification Accuracy</p></td>
+<td><p>Cross-check with system logs</p></td>
+<td><p>&gt; 95% accuracy</p></td>
+</tr>
+<tr class="row-even"><td><p>Audio Quality Consistency</p></td>
+<td><p>Signal analysis (SNR)</p></td>
+<td><p>&gt; 20 dB SNR</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="structural_analysis.html" class="btn btn-neutral float-left" title="Structural Analysis KPIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="core_system.html" class="btn btn-neutral float-right" title="Core System KPIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Group A: Shady Abdelmalek, Francesca Amato, Gian Marco Balia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
