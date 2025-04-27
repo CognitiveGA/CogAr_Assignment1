@@ -7,6 +7,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../../cogar_ros2_ws/src'))
 print(sys.path)
+print("CWD during Sphinx build:", os.getcwd())
 
 show_authors = True
 add_module_names = False
