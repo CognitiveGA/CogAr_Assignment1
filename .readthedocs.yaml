@@ -10,7 +10,8 @@ build:
     python: "3.11"  # or 3.12 if you want
 
 # Important: Enable submodules
-submodules: true
+submodules:
+  include: all
 
 # Sphinx configuration
 sphinx:
