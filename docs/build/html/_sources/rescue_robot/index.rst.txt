@@ -5,12 +5,8 @@ Rescue Robot Module
    :maxdepth: 2
 
    search_tasks/index
-<<<<<<< HEAD
-   structural_analysis/index
-=======
    structural_analysis/index
    communicator/index
    core_system/index
    actuator/index
    perception/index
->>>>>>> shady-docs
