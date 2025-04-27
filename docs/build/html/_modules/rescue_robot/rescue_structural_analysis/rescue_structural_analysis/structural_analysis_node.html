@@ -79,7 +79,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">rescue_structural_analysis.obstacle_and_damage_detection</span><span class="w"> </span><span class="kn">import</span> <span class="n">ObstacleAndDamageDetection</span>
 
 <div class="viewcode-block" id="StructuralAnalysisNode">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">StructuralAnalysisNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;structural_analysis_node&#39;</span><span class="p">)</span>
@@ -102,7 +102,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_data</span><span class="p">)</span>
 
 <div class="viewcode-block" id="StructuralAnalysisNode.env_callback">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode.env_callback">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode.env_callback">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">env_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">latest_env</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -111,7 +111,7 @@
 
 
 <div class="viewcode-block" id="StructuralAnalysisNode.imu_callback">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode.imu_callback">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode.imu_callback">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">imu_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="n">String</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">latest_imu</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -120,7 +120,7 @@
 
 
 <div class="viewcode-block" id="StructuralAnalysisNode.process_data">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode.process_data">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.StructuralAnalysisNode.process_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">process_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_env</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_imu</span><span class="p">:</span>
             <span class="k">return</span>  <span class="c1"># Wait for both sensor inputs</span>
@@ -149,7 +149,7 @@
 
 
 <div class="viewcode-block" id="main">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.main">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/structural_analysis/rescue_robot.rescue_structural_analysis.rescue_structural_analysis.html#rescue_robot.rescue_structural_analysis.rescue_structural_analysis.structural_analysis_node.main">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
     <span class="n">node</span> <span class="o">=</span> <span class="n">StructuralAnalysisNode</span><span class="p">()</span>

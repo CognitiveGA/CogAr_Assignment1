@@ -74,7 +74,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 
 <div class="viewcode-block" id="rclpy_init_shutdown">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.conftest.rclpy_init_shutdown">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.conftest.rclpy_init_shutdown">[docs]</a>
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s1">&#39;module&#39;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">rclpy_init_shutdown</span><span class="p">():</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
@@ -83,7 +83,7 @@
 
 
 <div class="viewcode-block" id="node">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.conftest.node">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.conftest.node">[docs]</a>
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">node</span><span class="p">(</span><span class="n">rclpy_init_shutdown</span><span class="p">):</span>
     <span class="n">node</span> <span class="o">=</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="s1">&#39;test_node&#39;</span><span class="p">)</span>

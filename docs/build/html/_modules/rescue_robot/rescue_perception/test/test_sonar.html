@@ -77,7 +77,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.sonar</span><span class="w"> </span><span class="kn">import</span> <span class="n">SONAR</span>
 
 <div class="viewcode-block" id="test_sonar_subscription">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.test_sonar.test_sonar_subscription">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.test_sonar.test_sonar_subscription">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_sonar_subscription</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
     <span class="n">wrapper</span> <span class="o">=</span> <span class="n">SONAR</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
     <span class="n">pub</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Range</span><span class="p">,</span> <span class="s1">&#39;/sonar_base&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>

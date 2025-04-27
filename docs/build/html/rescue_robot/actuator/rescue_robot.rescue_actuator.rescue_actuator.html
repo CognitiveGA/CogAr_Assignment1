@@ -46,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">rescue_robot</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Rescue Robot Package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../rescue_robot.html">rescue_robot package</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Actuator Module</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="rescue_robot.rescue_actuator.html">actuator_overview</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">actuator_details</a></li>
@@ -61,9 +60,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../component.html">Component Diagram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../diagrams.html">UML diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../state_machine.html">State Machine</a></li>
 </ul>
 
         </div>
@@ -120,7 +117,7 @@ based on JSON-encoded messages containing left and right motor speeds.</p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_actuator.rescue_actuator.actuator_node.ActuatorNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActuatorNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_actuator/rescue_actuator/actuator_node.html#ActuatorNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_actuator.rescue_actuator.actuator_node.ActuatorNode" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActuatorNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_actuator/rescue_actuator/actuator_node.html#ActuatorNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_actuator.rescue_actuator.actuator_node.ActuatorNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
 <p>Node that subscribes to ‘motor_commands’ topic and controls the motors using MotorController.</p>
 <dl class="py method">
@@ -166,7 +163,7 @@ such as moving forward or backward, stopping, and reporting its current status.<
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_actuator.rescue_actuator.motor.Motor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Motor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Motor'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_actuator/rescue_actuator/motor.html#Motor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_actuator.rescue_actuator.motor.Motor" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Motor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Motor'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_actuator/rescue_actuator/motor.html#Motor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_actuator.rescue_actuator.motor.Motor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Represents a motor with basic movement functionality.</p>
 <dl class="py attribute">
@@ -267,7 +264,7 @@ stop them, and query their current status.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_actuator.rescue_actuator.motor_controller.MotorController">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MotorController</span></span><a class="reference internal" href="../../_modules/rescue_robot/rescue_actuator/rescue_actuator/motor_controller.html#MotorController"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_actuator.rescue_actuator.motor_controller.MotorController" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MotorController</span></span><a class="reference internal" href="../../_modules/rescue_robot/rescue_actuator/rescue_actuator/motor_controller.html#MotorController"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_actuator.rescue_actuator.motor_controller.MotorController" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Singleton class to control two motors: left and right.</p>
 <dl class="py attribute">

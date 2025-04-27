@@ -77,7 +77,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.rgb_camera</span><span class="w"> </span><span class="kn">import</span> <span class="n">RGBCamera</span>
 
 <div class="viewcode-block" id="test_rgb_camera_subscription">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.test_rgb_camera.test_rgb_camera_subscription">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.test.html#rescue_robot.rescue_perception.test.test_rgb_camera.test_rgb_camera_subscription">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_rgb_camera_subscription</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
     <span class="n">wrapper</span> <span class="o">=</span> <span class="n">RGBCamera</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
     <span class="n">pub</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="s1">&#39;/head_front_camera/rgb/image_raw&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>

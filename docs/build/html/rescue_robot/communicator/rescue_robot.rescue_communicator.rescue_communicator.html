@@ -46,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">rescue_robot</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Rescue Robot Package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../rescue_robot.html">rescue_robot package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../actuator/index.html">Actuator Module</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Communicator Module</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="rescue_robot.rescue_communicator.html">communicator_overview</a></li>
@@ -61,9 +60,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../component.html">Component Diagram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../diagrams.html">UML diagrams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../state_machine.html">State Machine</a></li>
 </ul>
 
         </div>
@@ -113,7 +110,7 @@
 &gt;&gt;&gt; python communicator_node.py</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CommunicatorNode</span></span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/communicator_node.html#CommunicatorNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CommunicatorNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/communicator_node.html#CommunicatorNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.communicator_node.CommunicatorNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
 <p>ROS 2 node for managing communication devices and handling audio data.</p>
 <dl class="py attribute">
@@ -243,7 +240,7 @@ device with adjustable sensitivity and optional noise cancellation.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_communicator.rescue_communicator.microphone.Microphone">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Microphone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_cancellation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/microphone.html#Microphone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.microphone.Microphone" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Microphone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_cancellation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/microphone.html#Microphone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.microphone.Microphone" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simulated microphone device for capturing audio data.</p>
 <dl class="py attribute">
@@ -341,7 +338,7 @@ for mission status updates based on an urgency threshold.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_communicator.rescue_communicator.mission_status_notification.MissionStatusNotification">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MissionStatusNotification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urgency_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/mission_status_notification.html#MissionStatusNotification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.mission_status_notification.MissionStatusNotification" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MissionStatusNotification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">urgency_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/mission_status_notification.html#MissionStatusNotification"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.mission_status_notification.MissionStatusNotification" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simulated mission status notifier that triggers alerts based on urgency levels.</p>
 <dl class="py attribute">
@@ -426,7 +423,7 @@ that sends periodic real-time status updates.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_communicator.rescue_communicator.real_time_reporter.RealTimeReporter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RealTimeReporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/real_time_reporter.html#RealTimeReporter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.real_time_reporter.RealTimeReporter" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RealTimeReporter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/real_time_reporter.html#RealTimeReporter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.real_time_reporter.RealTimeReporter" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simulated real-time status reporter for mission or system updates.</p>
 <dl class="py attribute">
@@ -510,7 +507,7 @@ that can play back messages at a configurable volume.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_communicator.rescue_communicator.speaker.Speaker">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Speaker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/speaker.html#Speaker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.speaker.Speaker" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Speaker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_communicator/rescue_communicator/speaker.html#Speaker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_communicator.rescue_communicator.speaker.Speaker" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simulated speaker for playing audio messages.</p>
 <dl class="py attribute">
