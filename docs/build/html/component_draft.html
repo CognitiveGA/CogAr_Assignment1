@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Component Diagram &mdash; TIAGo Post-earthquake scenario 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TIAGo Post-earthquake scenario
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">rescue_robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diagrams.html">UML diagrams</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TIAGo Post-earthquake scenario</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Component Diagram</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component_draft.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="component-diagram">
+<h1>Component Diagram<a class="headerlink" href="#component-diagram" title="Link to this heading"></a></h1>
+<section id="cognitive-architecture-for-robotics-assignment-1-2024-25">
+<h2>Cognitive Architecture for Robotics – Assignment 1 (2024/25)<a class="headerlink" href="#cognitive-architecture-for-robotics-assignment-1-2024-25" title="Link to this heading"></a></h2>
+<p><strong>Topic</strong>: Post-Earthquake Scenarios for Search and Rescue</p>
+<p>This project designs a cognitive architecture to manage a TIAGo robotic platform operating in post-earthquake environments. The robot is tasked with locating injured individuals, evaluating their medical conditions, and assessing the structural integrity of the environment.</p>
+<p>The robot is equipped with the following sensors and devices:</p>
+<ul class="simple">
+<li><p>RGB-D Camera</p></li>
+<li><p>LiDAR</p></li>
+<li><p>SONAR</p></li>
+<li><p>Force Sensors</p></li>
+<li><p>Microphones</p></li>
+<li><p>Speakers</p></li>
+</ul>
+<p>Primary tasks include:</p>
+<ul class="simple">
+<li><p><strong>Victim Condition Assessment</strong>: Evaluate consciousness, responsiveness, and injury severity.</p></li>
+<li><p><strong>Structural Hazard Detection</strong>: Identify cracks, unstable sections, and other building risks.</p></li>
+<li><p><strong>Critical Report Transmission</strong>: Send detailed updates about victims and structures to a remote human supervisor.</p></li>
+<li><p><strong>Mission Status Notification</strong>: Notify completion of area exploration and await further instructions.</p></li>
+</ul>
+</section>
+<section id="system-architecture">
+<h2>System Architecture<a class="headerlink" href="#system-architecture" title="Link to this heading"></a></h2>
+<p>The architecture is divided into interconnected subsystems:</p>
+<section id="search-and-rescue-task">
+<h3>1. Search and Rescue Task<a class="headerlink" href="#search-and-rescue-task" title="Link to this heading"></a></h3>
+<p>This subsystem encompasses victim detection, prioritization, and interaction.</p>
+<ul class="simple">
+<li><p><strong>Victim Detection and Reporting</strong> component: Detects victims through RGB-D and microphone data.</p>
+<ul>
+<li><p><strong>Interfaces</strong>:</p>
+<ul>
+<li><p>Required:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position</span></code> (type <code class="docutils literal notranslate"><span class="pre">Odometry</span></code>, Stronglytype) from the <code class="docutils literal notranslate"><span class="pre">GPS</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Audio</span></code> (Stronglytype) from the <code class="docutils literal notranslate"><span class="pre">Microphone</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RBD</span> <span class="pre">/</span> <span class="pre">Point</span> <span class="pre">Cloud</span> <span class="pre">/</span> <span class="pre">Depth</span> <span class="pre">/</span> <span class="pre">Infrared</span></code> (Stronglytype) from the <code class="docutils literal notranslate"><span class="pre">RGB-D</span> <span class="pre">Camera</span></code>;</p></li>
+</ul>
+</li>
+<li><p>Provided: <code class="docutils literal notranslate"><span class="pre">Stateless</span></code> → <code class="docutils literal notranslate"><span class="pre">Autonomus</span> <span class="pre">Navigation</span></code>;</p></li>
+<li><p>Provide victim localization, ID victims, and priority levels to the <code class="docutils literal notranslate"><span class="pre">Triage</span> <span class="pre">System</span></code> and <code class="docutils literal notranslate"><span class="pre">Autonomus</span> <span class="pre">Navigation</span></code>;</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Triage System</strong> component:</p>
+<ul>
+<li><p>Provided: Audio to Speakers, String to RT-Reporting</p></li>
+<li><p>Required: RGB-D ecc from RGB-D Cameras, Status Code from Mission Status Notification</p></li>
+<li><p>Interacts verbally with victims using speakers and microphones.</p></li>
+<li><p>Assesses victim responsiveness through predefined verbal interactions.</p></li>
+<li><p>Sends critical condition alerts to the <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Interfaces</strong>:
+- <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Search</span> <span class="pre">Tasks</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>: Victim localization, triage results.</p>
+</section>
+<section id="structural-analysis">
+<h3>2. Structural Analysis<a class="headerlink" href="#structural-analysis" title="Link to this heading"></a></h3>
+<p>This subsystem evaluates the surrounding environment for hazards.</p>
+<ul class="simple">
+<li><p><strong>Obstacle and Damage Detection</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>):</p>
+<ul>
+<li><p>Utilises LiDAR, SONAR, and RGB-D sensors.</p></li>
+<li><p>Detects obstacles, cracks, and structural anomalies.</p></li>
+<li><p>Provided: PointCloud to Structural Risk Assessment and Autonomus Navigation</p></li>
+<li><p>Required: PointCloud ecc from Merge Data</p></li>
+</ul>
+</li>
+<li><p><strong>Structural Risk Assessment</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>):</p>
+<ul>
+<li><p>Processes structural data received from <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>.</p></li>
+<li><p>Evaluates wall stability and floor conditions.</p></li>
+<li><p>Sends risk assessments and safe path suggestions to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>.</p></li>
+<li><p>Provided: Command to Autonomous Navigation, Structural Condition to Real-time Reporting</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Interfaces</strong>:
+- <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>: Structural and obstacle data.
+- <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>: Risk evaluations and warnings.</p>
+</section>
+<section id="communication-interface">
+<h3>3. Communication Interface<a class="headerlink" href="#communication-interface" title="Link to this heading"></a></h3>
+<p>Manages the interaction between the robot and external operators.</p>
+<ul class="simple">
+<li><p><strong>Real-time Reporting</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>):</p>
+<ul>
+<li><p>Continuously sends environmental and victim updates.</p></li>
+<li><p>Required: Position from GPS, Medical Report from Triage System, Id ecc from Victim Detection and Reporting, Structural Condition from Risk Assessment</p></li>
+<li><p>Provided: Report to Mission Status Notification, Report to Gui Operator</p></li>
+</ul>
+</li>
+<li><p><strong>Mission Status Notification</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>):</p>
+<ul>
+<li><p>Aggregates mission data and communicates mission completion.</p></li>
+<li><p>Required: Report from Real-time Reporting, commands from GUI Operator</p></li>
+<li><p>Provided: Status Code to GUI Operator and Mission Status Notification</p></li>
+</ul>
+</li>
+<li><p><strong>Graphical User Interface (GUI)</strong> (External interface through <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>):</p>
+<ul>
+<li><p>Displays mission reports.</p></li>
+<li><p>Allows human operators to issue new commands.</p></li>
+<li><p>Required: Status Code from Mission Status Notification and Report from Real-time Reporting</p></li>
+<li><p>Provided: Command to Mission Status Notification and Autonomous Navigation</p></li>
+</ul>
+</li>
+<li><p><strong>Microphones</strong> detect audio responses from victims or environmental sounds.</p>
+<ul>
+<li><p>Provide: Audio to Victim Detection and Reporting and Triage System</p></li>
+</ul>
+</li>
+<li><p><strong>Speakers</strong> deliver verbal prompts and instructions.</p>
+<ul>
+<li><p>Required: Audio from Triage System</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Interfaces</strong>:
+-  → : Status reports and mission data.
+-  → : External operator commands.</p>
+</section>
+<section id="core-system">
+<h3>4. Core System<a class="headerlink" href="#core-system" title="Link to this heading"></a></h3>
+<p>The brain of the robot, managing and coordinating all subsystems.</p>
+<ul class="simple">
+<li><p><strong>SLAM</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>):</p>
+<ul>
+<li><p>Integrates inputs from perception, structural analysis, and search tasks.</p></li>
+<li><p>Decides on movement, inspection, reporting, and interaction priorities.</p></li>
+<li><p>Sends movement goals and actuation commands to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code>.</p></li>
+<li><p>Required: PointCloud ecc from Merge Data, Odometry from Motor Encoders</p></li>
+<li><p>Provided: PointCloud to Autonomous Navigation</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="perception-subsystem">
+<h3>6. Perception Subsystem<a class="headerlink" href="#perception-subsystem" title="Link to this heading"></a></h3>
+<p>Responsible for acquiring and processing raw sensory data.</p>
+<ul class="simple">
+<li><p><strong>Environmental Perception</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>):</p>
+<ul>
+<li><p>Fuses RGB-D, LiDAR, and SONAR data to generate 3D maps.</p></li>
+<li><p>Detects victims, obstacles, and structural damages.</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>Localization Sensors</strong>:</p>
+<ul>
+<li><p>GPS (for outdoor/global localization).</p></li>
+<li><p>IMUs (Inertial Measurement Units) for enhanced accuracy indoors.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Interfaces</strong>:
+- <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>: Real-time mapping and obstacle information.
+- <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>: Raw structural sensing data.</p>
+</section>
+</section>
+<section id="subsystem-interaction-summary">
+<h2>Subsystem Interaction Summary<a class="headerlink" href="#subsystem-interaction-summary" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Tasks</span></code> suggests search plans and reports victim findings to .</p></li>
+<li><p>assesses risks and advises .</p></li>
+<li><p>coordinates actions, sending motion plans to  and mission updates to .</p></li>
+<li><p>executes physical movements and reports outcomes.</p></li>
+<li><p>ensures continuous operator interaction and updates.</p></li>
+</ul>
+</section>
+<section id="graphical-representation">
+<h2>Graphical Representation<a class="headerlink" href="#graphical-representation" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The visual component diagram summarizing these subsystems and their interactions is included below.</p>
+</div>
+<img alt="Component Diagram" class="align-center" src="_images/component_diagram.svg" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Group A: Shady Abdelmalek, Francesca Amato, Gian Marco Balia.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
