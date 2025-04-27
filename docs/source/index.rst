@@ -31,6 +31,7 @@ Primary tasks include:
    diagrams   
    modules
    kpi/index.rst
+   tests/index.rst
 
 
 * :ref:`genindex`
