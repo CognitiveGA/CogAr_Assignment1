@@ -74,7 +74,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">nav_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Odometry</span>
 
 <div class="viewcode-block" id="GPS">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.gps.GPS">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.gps.GPS">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">GPS</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="s1">&#39;/ground_truth_odom&#39;</span><span class="p">,</span> <span class="n">qos_profile</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
@@ -91,7 +91,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">latest</span> <span class="o">=</span> <span class="n">msg</span>
 
 <div class="viewcode-block" id="GPS.get_position">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.gps.GPS.get_position">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.gps.GPS.get_position">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_position</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Odometry</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest</span></div>
 </div>

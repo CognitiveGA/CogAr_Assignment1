@@ -84,13 +84,13 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">rescue_perception.image_adjuster</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImageAdjuster</span>
 
 <div class="viewcode-block" id="vector3_to_dict">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.vector3_to_dict">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.vector3_to_dict">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">vector3_to_dict</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">}</span></div>
 
 
 <div class="viewcode-block" id="PerceptionNode">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PerceptionNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;perception_node&#39;</span><span class="p">)</span>
@@ -113,7 +113,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish_data</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PerceptionNode.publish_data">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode.publish_data">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode.publish_data">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">publish_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Gather latest messages</span>
         <span class="n">scan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lidar</span><span class="o">.</span><span class="n">get_scan</span><span class="p">()</span>
@@ -162,7 +162,7 @@
 
 
 <div class="viewcode-block" id="main">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.main">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.perception_node.main">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
     <span class="n">node</span> <span class="o">=</span> <span class="n">PerceptionNode</span><span class="p">()</span>

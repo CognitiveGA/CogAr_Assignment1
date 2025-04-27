@@ -74,7 +74,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 
 <div class="viewcode-block" id="RGBCamera">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">RGBCamera</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">topic</span><span class="o">=</span><span class="s1">&#39;/head_front_camera/rgb/image_raw&#39;</span><span class="p">,</span> <span class="n">qos_profile</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
@@ -91,7 +91,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">latest</span> <span class="o">=</span> <span class="n">msg</span>
 
 <div class="viewcode-block" id="RGBCamera.get_frame">
-<a class="viewcode-back" href="../../../../rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera.get_frame">[docs]</a>
+<a class="viewcode-back" href="../../../../rescue_robot/perception/rescue_robot.rescue_perception.rescue_perception.html#rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera.get_frame">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest</span></div>
 </div>
