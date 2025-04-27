@@ -44,23 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Component Diagram</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">Component Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="search_and_rescue_task.html">1. Search and Rescue Task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structural_analysis.html">2. Structural Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="communication_interface.html">3. Communication Interface</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">4. Core System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="actuator.html">5. Actuator Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="perception.html">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#graphical-representation">Graphical Representation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../state_machine.html">Behavioral Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -79,6 +76,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../diagrams.html">UML diagrams</a></li>
           <li class="breadcrumb-item"><a href="index.html">Component Diagram</a></li>
+          <li class="breadcrumb-item"><a href="system_architecture.html">System Architecture</a></li>
       <li class="breadcrumb-item active">4. Core System</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component/core_system.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -93,15 +91,15 @@
 <h1>4. Core System<a class="headerlink" href="#core-system" title="Link to this heading"></a></h1>
 <p>The brain of the robot, managing and coordinating all subsystems.</p>
 <ul>
-<li><p><strong>SLAM</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>):
-- Integrates inputs from perception, structural analysis, and search tasks.
-- Decides on movement, inspection, reporting, and interaction priorities.
-- Sends movement goals and actuation commands to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code>.</p>
+<li><p><strong>SLAM</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>):</p>
+<ul class="simple">
+<li><p>Integrates inputs from perception, structural analysis, and search tasks.</p></li>
+<li><p>Decides on movement, inspection, reporting, and interaction priorities.</p></li>
+<li><p>Sends movement goals and actuation commands to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code>.</p></li>
+<li><p><strong>Subscribed Topics</strong>:</p>
 <ul>
-<li><p><strong>Subscribed Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">env_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Environment mapping and obstacle detection data.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">env_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Environment mapping and obstacle detection data.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">points_frame_id</span></code> (string): Frame ID from LiDAR.</p></li>
@@ -110,12 +108,13 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">navigation_status</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Status updates of navigation plans.</p>
-<blockquote>
-<div><ul class="simple">
+</ul>
+</li>
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">navigation_status</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Status updates of navigation plans.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">status</span></code> (string): Result status, e.g., <code class="docutils literal notranslate"><span class="pre">SUCCESS</span></code>, <code class="docutils literal notranslate"><span class="pre">ABORTED</span></code>.</p></li>
@@ -123,19 +122,27 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </li>
-<li><p><strong>Internal Modules</strong>:</p>
-<ul class="simple">
-<li><p><strong>Mapping Module</strong>: Builds 2D/3D maps using point clouds and sonar data.</p></li>
-<li><p><strong>Autonomous Navigation Module</strong>: Plans navigation routes based on generated maps.</p></li>
 </ul>
 </li>
-<li><p><strong>Required Inputs</strong>:
-- PointCloud and SONAR data from <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> (via <code class="docutils literal notranslate"><span class="pre">env_detection</span></code> topic).</p></li>
-<li><p><strong>Provided Outputs</strong>:
-- Navigation status updates (via <code class="docutils literal notranslate"><span class="pre">navigation_status</span></code> topic).
-- Navigation decisions and motion plans sent internally to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code> (implementation details abstracted).</p></li>
+</ul>
+</li>
+<li><p><strong>Autonomous Navigation Module</strong>:</p>
+<ul class="simple">
+<li><p>Plans navigation routes based on generated maps.</p></li>
+<li><p>Required: Information from <code class="docutils literal notranslate"><span class="pre">Structural</span> <span class="pre">Risk</span> <span class="pre">Assessment</span></code>, <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Cloud</span></code> from <code class="docutils literal notranslate"><span class="pre">Obstacels</span> <span class="pre">and</span> <span class="pre">Damage</span> <span class="pre">Detection</span></code>, <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Code``from</span> <span class="pre">``Mission</span> <span class="pre">Status</span> <span class="pre">Notification</span></code>, <code class="docutils literal notranslate"><span class="pre">Commands``from</span> <span class="pre">``GUI</span> <span class="pre">Operator</span></code>, and <code class="docutils literal notranslate"><span class="pre">Localization</span></code>, <code class="docutils literal notranslate"><span class="pre">ID</span> <span class="pre">victims</span></code>, and <code class="docutils literal notranslate"><span class="pre">Priority</span></code> from <code class="docutils literal notranslate"><span class="pre">Victim</span> <span class="pre">Detection</span> <span class="pre">and</span> <span class="pre">Reporting</span></code>.</p></li>
+<li><p>Sends the <code class="docutils literal notranslate"><span class="pre">Path</span></code> to the <code class="docutils literal notranslate"><span class="pre">Motor</span> <span class="pre">Controllers</span></code>.</p></li>
+<li><p><strong>Required Inputs</strong>:</p>
+<ul>
+<li><p>PointCloud and SONAR data from <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> (via <code class="docutils literal notranslate"><span class="pre">env_detection</span></code> topic).</p></li>
+</ul>
+</li>
+<li><p><strong>Provided Outputs</strong>:</p>
+<ul>
+<li><p>Navigation status updates (via <code class="docutils literal notranslate"><span class="pre">navigation_status</span></code> topic).</p></li>
+<li><p>Navigation decisions and motion plans sent internally to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code> (implementation details abstracted).</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p><strong>Interfaces</strong>:</p>

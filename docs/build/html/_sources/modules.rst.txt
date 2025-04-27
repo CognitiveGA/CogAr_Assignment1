@@ -1,5 +1,5 @@
-rescue_robot
-============
+Dummy Code
+==========
 
 .. toctree::
    :maxdepth: 4

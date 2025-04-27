@@ -3,7 +3,8 @@
 
 Responsible for acquiring and processing raw sensory data.
 
-- **Environmental Perception** (Component: ``Rescue Perception``):
+- **Environmental Perception**:
+
   - Fuses RGB-D, LiDAR, and SONAR data to generate 3D maps.
   - Detects victims, obstacles, and structural damages.
 
@@ -66,10 +67,13 @@ Responsible for acquiring and processing raw sensory data.
 
 - **Interfaces**:
 
-  - ``Rescue Perception`` → ``Rescue Core System``: 
+  - ``Perception`` → ``Core System``: 
 
   Publishes real-time mapping and obstacle information (``env_detection`` topic).
 
-  - ``Rescue Perception`` → ``Rescue Structural Analysis``: 
+  - ``Perception`` → ``Structural Analysis``: 
 
   Provides raw structural sensing data (direct data interface).
+
+  - ``Perception`` → ``Search and Rescue Task`
+  - ``Perception`` → ``Communicator``

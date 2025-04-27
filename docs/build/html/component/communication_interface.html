@@ -44,23 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Component Diagram</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">Component Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="search_and_rescue_task.html">1. Search and Rescue Task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structural_analysis.html">2. Structural Analysis</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">3. Communication Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core_system.html">4. Core System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="actuator.html">5. Actuator Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="perception.html">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#graphical-representation">Graphical Representation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../state_machine.html">Behavioral Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -79,6 +76,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../diagrams.html">UML diagrams</a></li>
           <li class="breadcrumb-item"><a href="index.html">Component Diagram</a></li>
+          <li class="breadcrumb-item"><a href="system_architecture.html">System Architecture</a></li>
       <li class="breadcrumb-item active">3. Communication Interface</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component/communication_interface.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -92,18 +90,21 @@
   <section id="communication-interface">
 <h1>3. Communication Interface<a class="headerlink" href="#communication-interface" title="Link to this heading"></a></h1>
 <p>Manages the interaction between the robot and external operators.</p>
-<ul>
+<ul class="simple">
 <li><p><strong>Real-time Reporting</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>):</p>
 <ul>
 <li><p>Continuously sends environmental and victim updates.</p></li>
-<li><p>Required: Position from GPS, Medical Report from Triage System, Id ecc from Victim Detection and Reporting, Structural Condition from Risk Assessment</p></li>
+<li><p>Required: Position from GPS, Medical Report from Triage System, ID, Priority, and localization from Victim Detection and Reporting, Structural Condition from Risk Assessment</p></li>
 <li><p>Provided: Report to Mission Status Notification, Report to Gui Operator</p></li>
-<li><p><strong>Subscribed Topics</strong>:
-- <em>(None directly subscribed by Real-Time Reporting component)</em></p></li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">report_update</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Real-time status updates sent to Mission Status Notification and GUI Operator.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><strong>Subscribed Topics</strong>:</p>
+<ul>
+<li><p><em>(None directly subscribed by Real-Time Reporting component)</em></p></li>
+</ul>
+</li>
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">report_update</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Real-time status updates sent to Mission Status Notification and GUI Operator.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> (float): Time when the status was generated.</p></li>
@@ -111,7 +112,8 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -119,13 +121,16 @@
 <ul>
 <li><p>Aggregates mission data and communicates mission completion.</p></li>
 <li><p>Required: Report from Real-time Reporting, commands from GUI Operator</p></li>
-<li><p>Provided: Status Code to GUI Operator and Mission Status Notification</p></li>
-<li><p><strong>Subscribed Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">report_update</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Receives real-time reports to aggregate mission status.</p></li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">mission_status</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Aggregated mission status and updates.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p>Provided: Status Code to Triage System and Autonomous Navigation, and Mission Status Info to GUI Operator</p></li>
+<li><p><strong>Subscribed Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">report_update</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Receives real-time reports to aggregate mission status.</p></li>
+</ul>
+</li>
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mission_status</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Aggregated mission status and updates.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">mission_complete</span></code> (bool): Whether the mission task is completed.</p></li>
@@ -134,26 +139,27 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 </li>
-<li><p><strong>Graphical User Interface (GUI)</strong> (External interface through <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>):
-- Displays mission reports.
-- Allows human operators to issue new commands.
-- Required: Status Code from Mission Status Notification and Report from Real-time Reporting
-- Provided: Command to Mission Status Notification and Autonomous Navigation</p>
+</ul>
+</li>
+<li><p><strong>Graphical User Interface (GUI)</strong> (External interface through <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>):</p>
 <ul>
+<li><p>Displays mission reports.</p></li>
+<li><p>Allows human operators to issue new commands.</p></li>
+<li><p>Required: Mission Status Info from Mission Status Notification and Report from Real-time Reporting</p></li>
+<li><p>Provided: Command to Mission Status Notification and Autonomous Navigation</p></li>
 <li><p><strong>Subscribed Topics</strong>:</p>
-<ul class="simple">
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">mission_status</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Final mission reports for GUI display.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">report_update</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Real-time updates shown live to operators.</p></li>
 </ul>
 </li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">gui_commands</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Commands from operator to Mission Status Notification or Autonomous Navigation.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gui_commands</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Commands from operator to Mission Status Notification or Autonomous Navigation.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">command_type</span></code> (string): Type of command (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;Pause&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Resume&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;New</span> <span class="pre">Target&quot;</span></code>).</p></li>
@@ -161,29 +167,38 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 </li>
-<li><p><strong>Microphones</strong> detect audio responses from victims or environmental sounds.
-- Provide: Audio to Victim Detection and Reporting and Triage System
-- <strong>Published Topics</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">audio_in</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Captured audio input.
-- <strong>Content</strong>: Plain text or base64 encoded audio string (depending on system).</p></li>
 </ul>
-</div></blockquote>
 </li>
-<li><p><strong>Speakers</strong> deliver verbal prompts and instructions.
-- Required: Audio from Triage System
-- <strong>Subscribed Topics</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">search_rescue_audio_out</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Audio commands to be spoken.
-- <strong>Content</strong>: Plain text message to be played aloud.</p></li>
+<li><p><strong>Microphones</strong> detect audio responses from victims or environmental sounds.</p>
+<ul>
+<li><p>Provide: Audio to Victim Detection and Reporting and Triage System</p></li>
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">audio_in</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Captured audio input.</p>
+<ul>
+<li><p><strong>Content</strong>: Plain text or base64 encoded audio string (depending on system).</p></li>
 </ul>
-</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Speakers</strong> deliver verbal prompts and instructions.</p>
+<ul>
+<li><p>Required: Audio from Triage System</p></li>
+<li><p><strong>Subscribed Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">search_rescue_audio_out</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Audio commands to be spoken.</p>
+<ul>
+<li><p><strong>Content</strong>: Plain text message to be played aloud.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 <p><strong>Interfaces</strong>:</p>

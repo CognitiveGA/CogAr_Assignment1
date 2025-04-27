@@ -1,6 +1,17 @@
 Behavioral Diagram
 ==================
 
+Graphical Representation
+-------------------------
+
+.. note::
+
+   Visual state machine diagram summarizing the behavioral states and their transitions.
+
+.. image:: images/state_machine.png
+   :alt: Behavioral State Machine Diagram
+   :align: center
+
 The following section presents the **Behavioral State Machine** designed to guide the autonomous decision-making processes of the robotic system during search and rescue operations.
 The diagram (see figure below) illustrates the high-level behavior of the robot as it navigates between critical operational states such as risk assessment, victim detection, and triage activities.
 
@@ -84,14 +95,3 @@ Notes
 - The Behavioral State Machine is designed to operate continuously in real-time, handling dynamic changes in environmental conditions and victim prioritization.
 - Each major state features internal sub-processes for data acquisition, verification, and structured decision-making.
 - Critical transitions between states ensure that both risk and victim conditions are always re-evaluated at each operational cycle.
-
-Graphical Representation
--------------------------
-
-.. note::
-
-   The visual state machine diagram summarizing these behavioral states and their transitions is included below.
-
-.. image:: images/state_machine.png
-   :alt: Behavioral State Machine Diagram
-   :align: center

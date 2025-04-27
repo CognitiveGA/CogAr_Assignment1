@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Subsystem Interaction Summary" href="subsystem_interaction_summary.html" />
+    <link rel="next" title="Graphical Representation" href="graphical_representation.html" />
     <link rel="prev" title="5. Actuator Subsystem" href="actuator.html" /> 
 </head>
 
@@ -44,23 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Component Diagram</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">Component Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="search_and_rescue_task.html">1. Search and Rescue Task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structural_analysis.html">2. Structural Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="communication_interface.html">3. Communication Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core_system.html">4. Core System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="actuator.html">5. Actuator Subsystem</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#graphical-representation">Graphical Representation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../state_machine.html">Behavioral Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -79,6 +76,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../diagrams.html">UML diagrams</a></li>
           <li class="breadcrumb-item"><a href="index.html">Component Diagram</a></li>
+          <li class="breadcrumb-item"><a href="system_architecture.html">System Architecture</a></li>
       <li class="breadcrumb-item active">6. Perception Subsystem</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component/perception.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -93,10 +91,10 @@
 <h1>6. Perception Subsystem<a class="headerlink" href="#perception-subsystem" title="Link to this heading"></a></h1>
 <p>Responsible for acquiring and processing raw sensory data.</p>
 <ul>
-<li><p><strong>Environmental Perception</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>):
-- Fuses RGB-D, LiDAR, and SONAR data to generate 3D maps.
-- Detects victims, obstacles, and structural damages.</p>
+<li><p><strong>Environmental Perception</strong>:</p>
 <ul>
+<li><p>Fuses RGB-D, LiDAR, and SONAR data to generate 3D maps.</p></li>
+<li><p>Detects victims, obstacles, and structural damages.</p></li>
 <li><p><strong>Subscribed Topics</strong>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/scan_raw</span></code> (<code class="docutils literal notranslate"><span class="pre">sensor_msgs/msg/PointCloud2</span></code>):</p></li>
@@ -171,13 +169,17 @@
 </li>
 <li><p><strong>Interfaces</strong>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Core</span> <span class="pre">System</span></code>:</p></li>
 </ul>
 <p>Publishes real-time mapping and obstacle information (<code class="docutils literal notranslate"><span class="pre">env_detection</span></code> topic).</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Structural</span> <span class="pre">Analysis</span></code>:</p></li>
 </ul>
 <p>Provides raw structural sensing data (direct data interface).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Perception</span></code> → <a href="#id1"><span class="problematic" id="id2">``</span></a>Search and Rescue Task`</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Communicator</span></code></p></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -187,7 +189,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="actuator.html" class="btn btn-neutral float-left" title="5. Actuator Subsystem" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="subsystem_interaction_summary.html" class="btn btn-neutral float-right" title="Subsystem Interaction Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="graphical_representation.html" class="btn btn-neutral float-right" title="Graphical Representation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

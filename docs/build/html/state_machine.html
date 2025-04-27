@@ -19,7 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Graphical Representation" href="component/graphical_representation.html" /> 
+    <link rel="next" title="Dummy Code" href="modules.html" />
+    <link rel="prev" title="Subsystem Interaction Summary" href="component/subsystem_interaction_summary.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,20 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="component/index.html">Component Diagram</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Behavioral Diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#graphical-representation">Graphical Representation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#overview-of-the-diagram">Overview of the Diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#risk-assessment">1. Risk Assessment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#victim-detection-and-reporting">2. Victim Detection and Reporting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#triage">3. Triage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#graphical-representation">Graphical Representation</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -86,9 +87,17 @@
              
   <section id="behavioral-diagram">
 <h1>Behavioral Diagram<a class="headerlink" href="#behavioral-diagram" title="Link to this heading"></a></h1>
+<section id="graphical-representation">
+<h2>Graphical Representation<a class="headerlink" href="#graphical-representation" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Visual state machine diagram summarizing the behavioral states and their transitions.</p>
+</div>
+<img alt="Behavioral State Machine Diagram" class="align-center" src="_images/state_machine.png" />
 <p>The following section presents the <strong>Behavioral State Machine</strong> designed to guide the autonomous decision-making processes of the robotic system during search and rescue operations.
 The diagram (see figure below) illustrates the high-level behavior of the robot as it navigates between critical operational states such as risk assessment, victim detection, and triage activities.</p>
 <p>The structure is modular, enabling robust, reactive behaviors while maintaining clear transitions among different stages depending on environmental and victim conditions.</p>
+</section>
 <section id="overview-of-the-diagram">
 <h2>Overview of the Diagram<a class="headerlink" href="#overview-of-the-diagram" title="Link to this heading"></a></h2>
 <p>The Behavioral Diagram is organized into three major functional blocks:</p>
@@ -165,21 +174,14 @@ To perform an initial medical assessment of the victim upon reaching their locat
 <li><p>Critical transitions between states ensure that both risk and victim conditions are always re-evaluated at each operational cycle.</p></li>
 </ul>
 </section>
-<section id="graphical-representation">
-<h2>Graphical Representation<a class="headerlink" href="#graphical-representation" title="Link to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The visual state machine diagram summarizing these behavioral states and their transitions is included below.</p>
-</div>
-<img alt="Behavioral State Machine Diagram" class="align-center" src="_images/state_machine.png" />
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="component/graphical_representation.html" class="btn btn-neutral float-left" title="Graphical Representation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="component/subsystem_interaction_summary.html" class="btn btn-neutral float-left" title="Subsystem Interaction Summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="Dummy Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

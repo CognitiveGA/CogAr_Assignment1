@@ -1,16 +1,23 @@
 Component Diagram
 ==================
 
+Graphical Representation
+-------------------------
+
+.. note::
+
+   Visual component diagram summarizing the subsystems and their interactions.
+
+.. image:: ../images/component_diagram.svg
+   :alt: Component Diagram
+   :align: center
+
+
 .. toctree::
     :maxdepth: 2
-    :caption: Component Diagram Sections
+    :caption: Sections
 
-    intro
-    search_and_rescue_task
-    structural_analysis
-    communication_interface
-    core_system
-    actuator
-    perception
-    subsystem_interaction_summary
+    system_architecture
     graphical_representation
+    subsystem_interaction_summary
+

@@ -1,6 +1,17 @@
 Component Diagram
 ==================
 
+Graphical Representation
+-------------------------
+
+.. note::
+
+   Visual component diagram summarizing the subsystems and their interactions.
+
+.. image:: images/component_diagram.svg
+   :alt: Component Diagram
+   :align: center
+
 Cognitive Architecture for Robotics – Assignment 1 (2024/25)
 -------------------------------------------------------------
 
@@ -187,13 +198,3 @@ Subsystem Interaction Summary
 
 .. TODO
 
-Graphical Representation
--------------------------
-
-.. note::
-
-   The visual component diagram summarizing these subsystems and their interactions is included below.
-
-.. image:: images/component_diagram.svg
-   :alt: Component Diagram
-   :align: center

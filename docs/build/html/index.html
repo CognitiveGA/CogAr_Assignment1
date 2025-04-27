@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="rescue_robot" href="modules.html" /> 
+    <link rel="next" title="UML diagrams" href="diagrams.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,8 +43,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">rescue_robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -73,11 +73,47 @@
              
   <section id="tiago-post-earthquake-scenario-documentation">
 <h1>TIAGo Post-earthquake scenario documentation<a class="headerlink" href="#tiago-post-earthquake-scenario-documentation" title="Link to this heading"></a></h1>
+<p>This project designs a cognitive architecture to manage a TIAGo robotic platform operating in post-earthquake environments. The robot is tasked with locating injured individuals, evaluating their medical conditions, and assessing the structural integrity of the environment.</p>
+<p>The robot is equipped with the following sensors and devices:
+- RGB-D Camera
+- LiDAR
+- SONAR
+- Force Sensors
+- Microphones
+- Speakers</p>
+<p>Primary tasks include:</p>
+<ul class="simple">
+<li><p><strong>Victim Condition Assessment</strong>: Evaluate consciousness, responsiveness, and injury severity.</p></li>
+<li><p><strong>Structural Hazard Detection</strong>: Identify cracks, unstable sections, and other building risks.</p></li>
+<li><p><strong>Critical Report Transmission</strong>: Send detailed updates about victims and structures to a remote human supervisor.</p></li>
+<li><p><strong>Mission Status Notification</strong>: Notify completion of area exploration and await further instructions.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">rescue_robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rescue_robot/index.html">Rescue Robot Package</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="diagrams.html">UML diagrams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="component/index.html">Component Diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="component/index.html#graphical-representation">Graphical Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="component/system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="component/graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="component/subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="state_machine.html">Behavioral Diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="state_machine.html#graphical-representation">Graphical Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_machine.html#overview-of-the-diagram">Overview of the Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_machine.html#risk-assessment">1. Risk Assessment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_machine.html#victim-detection-and-reporting">2. Victim Detection and Reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_machine.html#triage">3. Triage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="state_machine.html#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Dummy Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rescue_robot/index.html">Rescue Robot Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="rescue_robot/actuator/index.html">Actuator Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.html">actuator_overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rescue_robot/actuator/rescue_robot.rescue_actuator.rescue_actuator.html">actuator_details</a></li>
@@ -112,34 +148,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="diagrams.html">UML diagrams</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="component/index.html">Component Diagram</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="component/intro.html">Component Diagram</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="component/intro.html#cognitive-architecture-for-robotics-assignment-1-2024-25">Cognitive Architecture for Robotics – Assignment 1 (2024/25)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="component/intro.html#system-architecture">System Architecture</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="component/search_and_rescue_task.html">1. Search and Rescue Task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/structural_analysis.html">2. Structural Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/communication_interface.html">3. Communication Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/core_system.html">4. Core System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/actuator.html">5. Actuator Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/perception.html">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="component/graphical_representation.html">Graphical Representation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="state_machine.html">Behavioral Diagram</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="state_machine.html#overview-of-the-diagram">Overview of the Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="state_machine.html#risk-assessment">1. Risk Assessment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="state_machine.html#victim-detection-and-reporting">2. Victim Detection and Reporting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="state_machine.html#triage">3. Triage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="state_machine.html#notes">Notes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="state_machine.html#graphical-representation">Graphical Representation</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </div>
 </section>
@@ -148,7 +156,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modules.html" class="btn btn-neutral float-right" title="rescue_robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="diagrams.html" class="btn btn-neutral float-right" title="UML diagrams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -44,23 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Component Diagram</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">Component Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="search_and_rescue_task.html">1. Search and Rescue Task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structural_analysis.html">2. Structural Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="communication_interface.html">3. Communication Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core_system.html">4. Core System</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">5. Actuator Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="perception.html">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#graphical-representation">Graphical Representation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../state_machine.html">Behavioral Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -79,6 +76,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../diagrams.html">UML diagrams</a></li>
           <li class="breadcrumb-item"><a href="index.html">Component Diagram</a></li>
+          <li class="breadcrumb-item"><a href="system_architecture.html">System Architecture</a></li>
       <li class="breadcrumb-item active">5. Actuator Subsystem</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component/actuator.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -92,15 +90,15 @@
   <section id="actuator-subsystem">
 <h1>5. Actuator Subsystem<a class="headerlink" href="#actuator-subsystem" title="Link to this heading"></a></h1>
 <p>This subsystem is responsible for executing movement commands received from the core system by controlling the robot’s motors.</p>
+<ul class="simple">
+<li><p><strong>Motor Controllers</strong>:</p>
 <ul>
-<li><p><strong>Motor Control</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code>):
-- Controls left and right motors independently based on incoming commands.
-- Executes movement patterns like forward, backward, turning, and stopping.</p>
+<li><p>Controls motors independently based on incoming commands.</p></li>
+<li><p>Executes movement patterns like forward, backward, turning, and stopping.</p></li>
+<li><p><strong>Subscribed Topics</strong>:</p>
 <ul>
-<li><p><strong>Subscribed Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">motor_commands</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Motor actuation commands for movement control.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">motor_commands</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Motor actuation commands for movement control.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">left</span></code> (int or float): Speed value for the left motor (positive for forward, negative for backward).</p></li>
@@ -108,22 +106,23 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
+</li>
+</ul>
 </li>
 <li><p><strong>Published Topics</strong>:
 - <em>(None currently published by Actuator Node)</em></p></li>
 </ul>
 </li>
-<li><p><strong>Internal Modules</strong>:</p>
-<ul class="simple">
-<li><p><strong>Motor Controller</strong>: Manages coordinated control of both left and right motors.</p></li>
-<li><p><strong>Motors</strong>: Low-level execution of movement commands including forward motion, backward motion, and stopping.</p></li>
+<li><p><strong>Motor Encoders</strong>:</p>
+<ul>
+<li><p>Measure the position, speed, and direction of a motor shaft.</p></li>
+<li><p>Provided: <code class="docutils literal notranslate"><span class="pre">Odometry``to</span> <span class="pre">the</span> <span class="pre">``SLAM``and</span> <span class="pre">``Velocity``and</span> <span class="pre">``Direction``to</span> <span class="pre">``Motor</span> <span class="pre">Controller</span></code></p></li>
 </ul>
 </li>
 </ul>
 <p><strong>Interfaces</strong>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Actuator</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Core</span> <span class="pre">System</span></code> → <code class="docutils literal notranslate"><span class="pre">Actuator</span></code>:</p></li>
 </ul>
 <p>Sends motor control commands (via <code class="docutils literal notranslate"><span class="pre">motor_commands</span></code> topic).</p>
 </section>

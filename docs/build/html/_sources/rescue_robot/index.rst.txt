@@ -1,5 +1,5 @@
-Rescue Robot Package
-=====================
+Rescue Robot Module
+===================
 
 .. toctree::
    :maxdepth: 2

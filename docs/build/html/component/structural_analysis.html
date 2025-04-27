@@ -44,23 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Component Diagram</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">Component Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="search_and_rescue_task.html">1. Search and Rescue Task</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">2. Structural Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="communication_interface.html">3. Communication Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core_system.html">4. Core System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="actuator.html">5. Actuator Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="perception.html">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#graphical-representation">Graphical Representation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../state_machine.html">Behavioral Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -79,6 +76,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../diagrams.html">UML diagrams</a></li>
           <li class="breadcrumb-item"><a href="index.html">Component Diagram</a></li>
+          <li class="breadcrumb-item"><a href="system_architecture.html">System Architecture</a></li>
       <li class="breadcrumb-item active">2. Structural Analysis</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component/structural_analysis.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -92,17 +90,17 @@
   <section id="structural-analysis">
 <h1>2. Structural Analysis<a class="headerlink" href="#structural-analysis" title="Link to this heading"></a></h1>
 <p>This subsystem evaluates the surrounding environment for hazards.</p>
+<ul class="simple">
+<li><p><strong>Obstacle and Damage Detection</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>):</p>
 <ul>
-<li><p><strong>Obstacle and Damage Detection</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>):
-- Utilises LiDAR, SONAR, and RGB-D sensors.
-- Detects obstacles, cracks, and structural anomalies.
-- Provided: PointCloud to Structural Risk Assessment and Autonomous Navigation
-- Required: PointCloud ecc from Merge Data</p>
+<li><p>Utilises LiDAR, SONAR, and RGB-D sensors.</p></li>
+<li><p>Detects obstacles, cracks, and structural anomalies.</p></li>
+<li><p>Provided: PointCloud to Structural Risk Assessment and Autonomous Navigation</p></li>
+<li><p>Required: PointCloud ecc from Merge Data</p></li>
+<li><p><strong>Subscribed Topics</strong>:</p>
 <ul>
-<li><p><strong>Subscribed Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">/env_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Environmental mapping data.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/env_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Environmental mapping data.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">points_frame_id</span></code> (string): Frame ID reference.</p></li>
@@ -111,12 +109,13 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">/obstacle_position</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Detected obstacles or damage areas.</p>
-<blockquote>
-<div><ul class="simple">
+</ul>
+</li>
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/obstacle_position</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Detected obstacles or damage areas.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> (float): Time when detection happened.</p></li>
@@ -127,34 +126,37 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 </li>
-<li><p><strong>Structural Risk Assessment</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>):
-- Processes structural data received from <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>.
-- Evaluates wall stability and floor conditions.
-- Sends risk assessments and safe path suggestions to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>.
-- Provided: Command to Autonomous Navigation, Structural Condition to Real-time Reporting</p>
+</ul>
+</li>
+<li><p><strong>Structural Risk Assessment</strong> (Component: <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>):</p>
 <ul>
+<li><p>Processes structural data received from <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code>.</p></li>
+<li><p>Evaluates wall stability and floor conditions.</p></li>
+<li><p>Sends risk assessments and safe path suggestions to <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>.</p></li>
+<li><p>Required: <code class="docutils literal notranslate"><span class="pre">Linear</span> <span class="pre">acceleration``and</span> <span class="pre">``Angular</span> <span class="pre">Velocity``from</span> <span class="pre">``IMUs</span></code>.</p></li>
+<li><p>Provided: Information to Autonomous Navigation, Structural Condition to Real-time Reporting</p></li>
 <li><p><strong>Subscribed Topics</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">/env_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Structural sensing input from Perception.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/imu_data</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): IMU measurements to assess physical stress.
-- <strong>Content</strong>:</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/imu_data</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): IMU measurements to assess physical stress.</p>
+<ul>
+<li><p><strong>Content</strong>:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">linear_acceleration</span></code> (dict with x, y, z): Forces measured.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">angular_velocity</span></code> (dict with x, y, z): Rotational velocities.</p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 </li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">/risk_info</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Structural collapse risk evaluation.</p>
-<blockquote>
-<div><ul class="simple">
+</ul>
+</li>
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/risk_info</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Structural collapse risk evaluation.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> (float): Time of analysis.</p></li>
@@ -165,18 +167,20 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 </ul>
 <p><strong>Interfaces</strong>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Perception</span></code> → <code class="docutils literal notranslate"><span class="pre">Structural</span> <span class="pre">Analysis</span></code>:</p></li>
 </ul>
 <p>Publishes environment mapping and IMU data (<code class="docutils literal notranslate"><span class="pre">/env_detection</span></code>, <code class="docutils literal notranslate"><span class="pre">/imu_data</span></code> topics).</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Structural</span> <span class="pre">Analysis</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Structural</span> <span class="pre">Analysis</span></code> → <code class="docutils literal notranslate"><span class="pre">Core</span> <span class="pre">System</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Structural</span> <span class="pre">Analysis</span></code> → <code class="docutils literal notranslate"><span class="pre">Communicator</span></code>:</p></li>
 </ul>
 <p>Publishes structural risk evaluations and obstacle alerts (<code class="docutils literal notranslate"><span class="pre">/risk_info</span></code>, <code class="docutils literal notranslate"><span class="pre">/obstacle_position</span></code> topics).</p>
 </section>

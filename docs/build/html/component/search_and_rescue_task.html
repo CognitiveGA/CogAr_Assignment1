@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Structural Analysis" href="structural_analysis.html" />
-    <link rel="prev" title="Component Diagram" href="intro.html" /> 
+    <link rel="prev" title="System Architecture" href="system_architecture.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,23 +44,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">rescue_robot</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../diagrams.html">UML diagrams</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Component Diagram</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="intro.html">Component Diagram</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Search and Rescue Task</a></li>
-<li class="toctree-l3"><a class="reference internal" href="structural_analysis.html">2. Structural Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="communication_interface.html">3. Communication Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="core_system.html">4. Core System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="actuator.html">5. Actuator Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="perception.html">6. Perception Subsystem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#graphical-representation">Graphical Representation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="system_architecture.html">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graphical_representation.html">Graphical Representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsystem_interaction_summary.html">Subsystem Interaction Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../state_machine.html">Behavioral Diagram</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Dummy Code</a></li>
 </ul>
 
         </div>
@@ -79,6 +76,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../diagrams.html">UML diagrams</a></li>
           <li class="breadcrumb-item"><a href="index.html">Component Diagram</a></li>
+          <li class="breadcrumb-item"><a href="system_architecture.html">System Architecture</a></li>
       <li class="breadcrumb-item active">1. Search and Rescue Task</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/CognitiveGA/CogAr_Assignment1/blob/main/docs/source/component/search_and_rescue_task.rst" class="fa fa-github"> Edit on GitHub</a>
@@ -92,11 +90,12 @@
   <section id="search-and-rescue-task">
 <h1>1. Search and Rescue Task<a class="headerlink" href="#search-and-rescue-task" title="Link to this heading"></a></h1>
 <p>This subsystem encompasses victim detection, prioritization, and interaction.</p>
-<ul>
+<ul class="simple">
 <li><p><strong>Victim Detection and Reporting</strong> component: Detects victims through RGB-D and microphone data.</p>
 <ul>
+<li><p>Provide victim <code class="docutils literal notranslate"><span class="pre">Localization</span></code>, <code class="docutils literal notranslate"><span class="pre">ID</span> <span class="pre">victims</span></code>, and <code class="docutils literal notranslate"><span class="pre">Priority</span></code> levels to the <code class="docutils literal notranslate"><span class="pre">Triage</span> <span class="pre">System</span></code> and <code class="docutils literal notranslate"><span class="pre">Autonomus</span> <span class="pre">Navigation</span></code>.</p></li>
 <li><p><strong>Interfaces</strong>:</p>
-<ul class="simple">
+<ul>
 <li><p>Required:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Position</span></code> (type <code class="docutils literal notranslate"><span class="pre">Odometry</span></code>, Stronglytype) from the <code class="docutils literal notranslate"><span class="pre">GPS</span></code>;</p></li>
@@ -104,14 +103,13 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">RBD</span> <span class="pre">/</span> <span class="pre">Point</span> <span class="pre">Cloud</span> <span class="pre">/</span> <span class="pre">Depth</span> <span class="pre">/</span> <span class="pre">Infrared</span></code> (Stronglytype) from the <code class="docutils literal notranslate"><span class="pre">RGB-D</span> <span class="pre">Camera</span></code>;</p></li>
 </ul>
 </li>
-<li><p>Provided: <code class="docutils literal notranslate"><span class="pre">Stateless</span></code> → <code class="docutils literal notranslate"><span class="pre">Autonomus</span> <span class="pre">Navigation</span></code>;</p></li>
-<li><p>Provide victim localization, ID victims, and priority levels to the <code class="docutils literal notranslate"><span class="pre">Triage</span> <span class="pre">System</span></code> and <code class="docutils literal notranslate"><span class="pre">Autonomus</span> <span class="pre">Navigation</span></code>.</p></li>
+<li><p>Provided: <code class="docutils literal notranslate"><span class="pre">Stateless</span></code> → <code class="docutils literal notranslate"><span class="pre">Autonomus</span> <span class="pre">Navigation</span></code> and <code class="docutils literal notranslate"><span class="pre">Real-Time</span> <span class="pre">Reporting</span></code>;</p></li>
 </ul>
 </li>
-<li><p><strong>Subscribed Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">injury_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Injury-related image and RGB-D adjusted data.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><strong>Subscribed Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">injury_detection</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Injury-related image and RGB-D adjusted data.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">adjusted_data</span></code> (string): Adjusted image data.</p></li>
@@ -120,16 +118,15 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">audio_in</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Captured audio data from the environment.
 - <strong>Content</strong>: Raw audio string, typically voice or environment noise.</p></li>
 </ul>
 </li>
-<li><p><strong>Published Topics</strong>:
-- <code class="docutils literal notranslate"><span class="pre">search_rescue_audio_out</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Consolidated victim detection and triage status.</p>
-<blockquote>
-<div><ul class="simple">
+<li><p><strong>Published Topics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">search_rescue_audio_out</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code>): Consolidated victim detection and triage status.</p>
+<ul>
 <li><p><strong>Content</strong>: JSON with:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">detection</span></code> (dict): Victim detection information.</p>
@@ -150,27 +147,28 @@
 </ul>
 </li>
 </ul>
-</div></blockquote>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 <li><p><strong>Triage System</strong> component:</p>
-<ul class="simple">
+<ul>
 <li><p>Provided: Audio to Speakers, String to RT-Reporting</p></li>
-<li><p>Required: RGB-D ecc from RGB-D Cameras, Status Code from Mission Status Notification</p></li>
+<li><p>Required: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">Cloud</span></code>, <code class="docutils literal notranslate"><span class="pre">Depth</span></code>, and <code class="docutils literal notranslate"><span class="pre">Infrared</span></code> from <code class="docutils literal notranslate"><span class="pre">RGB-D</span> <span class="pre">Cameras</span></code>, <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Code</span></code> from <code class="docutils literal notranslate"><span class="pre">Mission</span> <span class="pre">Status</span> <span class="pre">Notification</span></code></p></li>
 <li><p>Interacts verbally with victims using speakers and microphones.</p></li>
-<li><p>Assesses victim responsiveness through predefined verbal interactions.</p></li>
+<li><p>Assesses victim responsiveness through verbal interactions.</p></li>
 <li><p>Sends critical condition alerts to the <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>.</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>Interfaces</strong>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Search</span> <span class="pre">Tasks</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Core</span> <span class="pre">System</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Search</span> <span class="pre">and</span> <span class="pre">Rescue</span> <span class="pre">Tasks</span></code> → <code class="docutils literal notranslate"><span class="pre">Core</span> <span class="pre">System</span></code>:</p></li>
 </ul>
 <p>Victim localization, triage results.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Search</span> <span class="pre">Tasks</span></code> → <code class="docutils literal notranslate"><span class="pre">Rescue</span> <span class="pre">Communicator</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Search</span> <span class="pre">and</span> <span class="pre">Rescue</span> <span class="pre">Tasks</span></code> → <code class="docutils literal notranslate"><span class="pre">Communicator</span></code>:</p></li>
 </ul>
 <p>Sends detected audio prompts to be played via speakers (<code class="docutils literal notranslate"><span class="pre">search_rescue_audio_out</span></code> topic).</p>
 </section>
@@ -179,7 +177,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="intro.html" class="btn btn-neutral float-left" title="Component Diagram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="system_architecture.html" class="btn btn-neutral float-left" title="System Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="structural_analysis.html" class="btn btn-neutral float-right" title="2. Structural Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
