@@ -4,9 +4,13 @@ Rescue Robot Module
 .. toctree::
    :maxdepth: 2
 
-   actuator/index
+   search_tasks/index
+<<<<<<< HEAD
+   structural_analysis/index
+=======
+   structural_analysis/index
    communicator/index
    core_system/index
+   actuator/index
    perception/index
-   search_tasks/index
-   structural_analysis/index
+>>>>>>> shady-docs

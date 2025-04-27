@@ -30,3 +30,13 @@ Primary tasks include:
 
    diagrams   
    modules
+<<<<<<< HEAD
+=======
+   diagrams
+   kpi/index.rst
+
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+>>>>>>> shady-docs
