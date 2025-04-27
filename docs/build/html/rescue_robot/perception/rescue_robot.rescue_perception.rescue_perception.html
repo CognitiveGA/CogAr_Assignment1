@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Search Tasks Module" href="../search_tasks/index.html" />
+    <link rel="next" title="UML diagrams" href="../../diagrams.html" />
     <link rel="prev" title="perception_overview" href="rescue_robot.rescue_perception.html" /> 
 </head>
 
@@ -46,21 +46,22 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../modules.html">rescue_robot</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Rescue Robot Package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../actuator/index.html">Actuator Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../search_tasks/index.html">Search Tasks Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structural_analysis/index.html">Structural Analysis Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../communicator/index.html">Communicator Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../core_system/index.html">Core System Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../actuator/index.html">Actuator Module</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Perception Module</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="rescue_robot.rescue_perception.html">perception_overview</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">perception_details</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../search_tasks/index.html">Search Tasks Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../structural_analysis/index.html">Structural Analysis Module</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../diagrams.html">UML diagrams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kpi/index.html">KPIs</a></li>
 </ul>
 
         </div>
@@ -97,7 +98,7 @@
 <span id="perception-node"></span><h2>perception_node<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.perception_node" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PerceptionNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/perception_node.html#PerceptionNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PerceptionNode</span></span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/perception_node.html#PerceptionNode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.perception_node.PerceptionNode.publish_data">
@@ -121,7 +122,7 @@
 <span id="gps"></span><h2>gps<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.gps" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.gps.GPS">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GPS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/ground_truth_odom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/gps.html#GPS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.gps.GPS" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GPS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/ground_truth_odom'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/gps.html#GPS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.gps.GPS" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.gps.GPS.get_position">
@@ -135,7 +136,7 @@
 <span id="image-adjuster"></span><h2>image_adjuster<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.image_adjuster" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.image_adjuster.ImageAdjuster">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImageAdjuster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brightness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/image_adjuster.html#ImageAdjuster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.image_adjuster.ImageAdjuster" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImageAdjuster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brightness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/image_adjuster.html#ImageAdjuster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.image_adjuster.ImageAdjuster" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.image_adjuster.ImageAdjuster.adjust">
@@ -149,7 +150,7 @@
 <span id="imu"></span><h2>imu<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.imu" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.imu.IMU">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IMU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/base_imu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/imu.html#IMU"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.imu.IMU" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IMU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/base_imu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/imu.html#IMU"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.imu.IMU" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.imu.IMU.get_data">
@@ -163,7 +164,7 @@
 <span id="lidar"></span><h2>lidar<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.lidar" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.lidar.LiDAR">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LiDAR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/scan_raw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/lidar.html#LiDAR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.lidar.LiDAR" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LiDAR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/scan_raw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/lidar.html#LiDAR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.lidar.LiDAR" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.lidar.LiDAR.get_scan">
@@ -177,7 +178,7 @@
 <span id="rgb-camera"></span><h2>rgb_camera<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.rgb_camera" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RGBCamera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/head_front_camera/rgb/image_raw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/rgb_camera.html#RGBCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RGBCamera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/head_front_camera/rgb/image_raw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/rgb_camera.html#RGBCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.rgb_camera.RGBCamera.get_frame">
@@ -191,7 +192,7 @@
 <span id="sonar"></span><h2>sonar<a class="headerlink" href="#module-rescue_robot.rescue_perception.rescue_perception.sonar" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.sonar.SONAR">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SONAR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/sonar_base'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/sonar.html#SONAR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.sonar.SONAR" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SONAR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/sonar_base'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/rescue_robot/rescue_perception/rescue_perception/sonar.html#SONAR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rescue_robot.rescue_perception.rescue_perception.sonar.SONAR" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rescue_robot.rescue_perception.rescue_perception.sonar.SONAR.get_data">
@@ -208,7 +209,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="rescue_robot.rescue_perception.html" class="btn btn-neutral float-left" title="perception_overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../search_tasks/index.html" class="btn btn-neutral float-right" title="Search Tasks Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../diagrams.html" class="btn btn-neutral float-right" title="UML diagrams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

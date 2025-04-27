@@ -12,3 +12,9 @@ TIAGo Post-earthquake scenario documentation
    
    modules
    diagrams
+   kpi/index.rst
+
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
