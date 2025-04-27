@@ -12,6 +12,7 @@ build:
 # Important: Enable submodules
 submodules:
   include: all
+  recursive: true
 
 # Sphinx configuration
 sphinx:
